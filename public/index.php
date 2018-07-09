@@ -3,12 +3,12 @@
 <?php include "layouts/header.php" ?>
 <body>
     <div class="header">
-        <h3>Life System</h3>
+        <h1>Life System</h1>
     </div>
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h1>List of Tasks</h1>
+                <h2>List of Tasks</h2>
             </div>
             <div class="panel-body">
                 <div class="table">
