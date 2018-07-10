@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-$title = 'Revenues';
-include "layouts/header.php"
+    $title = 'Revenues';
+    include "layouts/header.php";
 ?>
 <body>
 <div id="app">

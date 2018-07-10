@@ -2,7 +2,10 @@
 <html lang="en">
 <?php
     $title = 'Expenses';
-    include "layouts/header.php"
+    include "layouts/header.php";
+
+    $connection = mysqli_connect('localhost', 'root', 'toor', 'abdul_fattah');
+    $expenses   = mysqli_query($connection, 'SELECT * FROM transactions;');
 ?>
 <body>
 <div id="app">
@@ -24,16 +27,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Laravel framework</td>
-                                <td>2018-07-08</td>
-                                <td>2018-07-08</td>
-                            </tr>
-                            <tr>
-                                <td>VueJs framework</td>
-                                <td>2018-07-08</td>
-                                <td>2018-07-08</td>
-                            </tr>
+                                <?php while ($expense = mysqli_fetch_object($expenses)): ?>
+                                <tr>
+                                    <td><?php echo $expense->amount ?></td>
+                                    <td><?php echo $expense->comment ?></td>
+                                    <td><?php echo $expense->created_at ?></td>
+                                </tr>
+                                <?php endwhile; ?>
                             </tbody>
                         </table>
                     </div>
