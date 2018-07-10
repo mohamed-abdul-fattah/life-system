@@ -1,0 +1,31 @@
+/* Cairo Google font */
+@import url('https://fonts.googleapis.com/css?family=Cairo|Poiret+One');
+
+* {
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#app {
+    min-height: 92vh;
+}
+
+.container {
+    padding: 0 3em;
+}
+
+.header {
+    background-color: #24292e;
+    color: #fff;
+}
+
+footer {
+    min-height: 8vh;
+    background-color: #f5f5dc;
+    text-align: center;
+}
