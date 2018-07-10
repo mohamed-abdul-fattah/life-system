@@ -7,5 +7,5 @@
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
           crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/master.css">
-    <title>Home | Life System</title>
+    <title><?php echo isset($title) ? $title : 'Home'; ?> | Life System</title>
 </head>
