@@ -1,5 +1,5 @@
 <div class="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/">
             <h2>Life System</h2>
         </a>

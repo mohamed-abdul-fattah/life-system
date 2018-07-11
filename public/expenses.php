@@ -5,7 +5,7 @@
     include "layouts/header.php";
 
     $connection = mysqli_connect('localhost', 'root', 'toor', 'abdul_fattah');
-    $expenses   = mysqli_query($connection, 'SELECT * FROM transactions;');
+    $expenses   = mysqli_query($connection, 'SELECT * FROM transactions ORDER BY created_at DESC');
 ?>
 <body>
 <div id="app">
@@ -31,7 +31,7 @@
                                 <tr>
                                     <td><?php echo $expense->amount ?></td>
                                     <td><?php echo $expense->comment ?></td>
-                                    <td><?php echo $expense->created_at ?></td>
+                                    <td><?php echo date('d-M-Y', strtotime($expense->created_at)) ?></td>
                                 </tr>
                                 <?php endwhile; ?>
                             </tbody>
