@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    $title = 'Expenses';
     include "layouts/header.php";
 
+    $perPage    = 30;
+    $currentPage= $_GET['page'] ?? 1;
+    $offset     = ($currentPage - 1) * $perPage;
+
     $connection = mysqli_connect('localhost', 'root', 'toor', 'abdul_fattah');
-    $expenses   = mysqli_query($connection, 'SELECT * FROM transactions ORDER BY created_at DESC');
+    $query      =  "SELECT * FROM `transactions` 
+                    LIMIT {$perPage} 
+                    OFFSET {$offset}";
+    $countQuery = "SELECT COUNT(*) as total FROM `transactions`";
+    $expenses   = mysqli_query($connection, $query);
+    $count      = mysqli_query($connection, $countQuery);
+    $total      = mysqli_fetch_object($count)->total;
+
+    $firstPage  = 1;
+    $lastPage   = ceil($total / $perPage);
 ?>
 <body>
 <div id="app">
@@ -36,6 +48,36 @@
                                 <?php endwhile; ?>
                             </tbody>
                         </table>
+
+                        <!-- Pagination -->
+                        <?php if ($total): ?>
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li class="page-item <?php if ($currentPage == $firstPage) echo 'disabled'; ?>">
+                                        <a class="page-link" href="/expenses.php?page=<?php echo $currentPage - 1 ?>">
+                                            Previous
+                                        </a>
+                                    </li>
+                                    <?php for ($page = 1; $page <= ceil($total / $perPage); $page++): ?>
+                                        <li class="page-item <?php if ($page == $currentPage) echo 'active'; ?>">
+                                            <?php if ($page == $currentPage): ?>
+                                                <span class="page-link">
+                                                    <?php echo $page ?>
+                                                    <span class="sr-only">(current)</span>
+                                                </span>
+                                            <?php else: ?>
+                                                <a class="page-link" href="/expenses.php?page=<?php echo $page ?>">
+                                                    <?php echo $page ?>
+                                                </a>
+                                            <?php endif; ?>
+                                        </li>
+                                    <?php endfor ?>
+                                    <li class="page-item <?php if ($currentPage == $lastPage) echo 'disabled'; ?>">
+                                        <a class="page-link" href="/expenses.php?page=<?php echo $currentPage + 1 ?>">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
