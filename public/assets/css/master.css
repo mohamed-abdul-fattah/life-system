@@ -26,6 +26,7 @@ body {
 
 footer {
     min-height: 8vh;
-    background-color: #f5f5dc;
+    background-color: #24292e;
+    color: #fff;
     text-align: center;
 }
