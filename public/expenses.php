@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+    $title      = 'Expenses';
     include "layouts/header.php";
 
     $perPage    = 30;
