@@ -90,7 +90,7 @@
                                 <nav aria-label="...">
                                     <ul class="pagination">
                                         <li class="page-item <?php if ($currentPage == $firstPage) echo 'disabled'; ?>">
-                                            <a class="page-link" href="/expenses.php?page=<?php echo $currentPage - 1 ?>">
+                                            <a class="page-link" href="<?php echo url('expenses/?page='). ($currentPage - 1) ?>">
                                                 Previous
                                             </a>
                                         </li>
@@ -102,14 +102,14 @@
                                                         <span class="sr-only">(current)</span>
                                                     </span>
                                                 <?php else: ?>
-                                                    <a class="page-link" href="/expenses.php?page=<?php echo $page ?>">
+                                                    <a class="page-link" href="<?php echo url('expenses/?page='). $page ?>">
                                                         <?php echo $page ?>
                                                     </a>
                                                 <?php endif; ?>
                                             </li>
                                         <?php endfor ?>
                                         <li class="page-item <?php if ($currentPage == $lastPage) echo 'disabled'; ?>">
-                                            <a class="page-link" href="/expenses.php?page=<?php echo $currentPage + 1 ?>">Next</a>
+                                            <a class="page-link" href="<?php echo url('expenses/?page='). ($currentPage + 1) ?>">Next</a>
                                         </li>
                                     </ul>
                                 </nav>
