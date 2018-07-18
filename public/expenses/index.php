@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
     $title      = 'Expenses';
-    include "layouts/header.php";
+    include "../layouts/header.php";
 
     $perPage    = 15;
     $currentPage= $_GET['page'] ?? 1;
@@ -22,7 +22,7 @@
 ?>
 <body>
 <div id="app">
-    <?php include "layouts/navbar.php" ?>
+    <?php include "../layouts/navbar.php" ?>
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
@@ -86,6 +86,6 @@
         </div>
     </div>
 </div>
-<?php include "layouts/footer.php" ?>
+<?php include "../layouts/footer.php" ?>
 </body>
 </html>

@@ -9,7 +9,7 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/expenses.php">Expenses</a>
+                    <a class="nav-link" href="/expenses">Expenses</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/revenues.php">Revenues</a>
