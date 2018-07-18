@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
     include __DIR__. "/../../helpers.php";
-    $title      = 'Expenses';
-    include public_path("layouts/header.php");
-
     $perPage    = 15;
     $currentPage= $_GET['page'] ?? 1;
     $offset     = ($currentPage - 1) * $perPage;
@@ -20,6 +15,35 @@
 
     $firstPage  = 1;
     $lastPage   = ceil($total / $perPage);
+
+    /**
+     * Storing new expense
+     */
+    if (isset($_POST['submit'])) {
+        $amount  = $_POST['amount'];
+        $comment = $_POST['comment'];
+        $date    = ($_POST['created_at']) ? $_POST['created_at'] : date('Y-m-d');
+
+        $query  =  "INSERT INTO `transactions` (`amount`, `comment`, `created_at`)
+                    VALUES ({$amount}, '{$comment}', '{$date}')";
+        
+        $result = mysqli_query($connection, $query);
+
+        if ($result) {
+            $message = 'Expense added successfully';
+            $alert   = 'success';
+        } else {
+            $message = 'Whoops, something went wrong!';
+            $alert   = 'danger';
+        }
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<?php
+    $title = 'Expenses';
+    include public_path("layouts/header.php");
 ?>
 <body>
 <div id="app">
@@ -27,6 +51,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <?php if (isset($message)): ?>
+                    <div class="alert alert-<?php echo $alert ?> mt-3">
+                        <?php echo $message ?>
+                    </div>
+                <?php endif ?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2 class="title">Expenses</h2>
