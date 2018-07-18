@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include "layouts/header.php" ?>
+<?php 
+    include __DIR__. "/../helpers.php";
+    include public_path("layouts/header.php");
+?>
 <body>
     <div id="app">
-        <?php include "layouts/navbar.php" ?>
+        <?php include public_path("layouts/navbar.php") ?>
         <div class="container">
             <div class="row"></div>
         </div>
     </div>
-    <?php include "layouts/footer.php" ?>
+    <?php include public_path("layouts/footer.php") ?>
 </body>
 </html>

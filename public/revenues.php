@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+    include __DIR__. "/../helpers.php";
     $title = 'Revenues';
-    include "layouts/header.php";
+    include public_path("layouts/header.php");
 ?>
 <body>
 <div id="app">
-    <?php include "layouts/navbar.php" ?>
+    <?php include public_path("layouts/navbar.php") ?>
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
@@ -57,6 +58,6 @@
         </div>
     </div>
 </div>
-<?php include "layouts/footer.php" ?>
+<?php include public_path("layouts/footer.php") ?>
 </body>
 </html>
