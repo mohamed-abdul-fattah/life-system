@@ -29,7 +29,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="title">Expenses</h2>
-                    <a href="/expenses/create.php" class="btn btn-primary btn-sm float-right">Add Expense</a>
+                    <a href="<?php echo url('expenses/create.php') ?>" class="btn btn-primary btn-sm float-right">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Add Expense
+                    </a>
                 </div>
                 <div class="panel-body">
                     <div class="table">
