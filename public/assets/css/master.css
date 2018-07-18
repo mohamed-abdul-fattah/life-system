@@ -24,6 +24,14 @@ body {
     color: #fff;
 }
 
+.panel-heading {
+    padding: 5px 10px;
+}
+
+.panel-heading .title {
+    display: inline;
+}
+
 footer {
     min-height: 8vh;
     background-color: #24292e;

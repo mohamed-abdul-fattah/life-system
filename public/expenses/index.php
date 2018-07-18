@@ -4,7 +4,7 @@
     $title      = 'Expenses';
     include "layouts/header.php";
 
-    $perPage    = 30;
+    $perPage    = 15;
     $currentPage= $_GET['page'] ?? 1;
     $offset     = ($currentPage - 1) * $perPage;
 
@@ -27,7 +27,8 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2>Expenses</h2>
+                    <h2 class="title">Expenses</h2>
+                    <a href="/expenses/create.php" class="btn btn-primary btn-sm float-right">Add Expense</a>
                 </div>
                 <div class="panel-body">
                     <div class="table">
