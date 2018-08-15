@@ -1,5 +1,7 @@
 /* Cairo Google font */
 @import url('https://fonts.googleapis.com/css?family=Cairo|Poiret+One');
+/* Fontawesome */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 * {
     font-family: 'Cairo', sans-serif;
@@ -24,8 +26,21 @@ body {
     color: #fff;
 }
 
+.panel-heading {
+    padding: 10px 0;
+}
+
+.panel-heading .title {
+    display: inline;
+}
+
+.btn-warning {
+    color: #fff;
+}
+
 footer {
     min-height: 8vh;
-    background-color: #f5f5dc;
+    background-color: #24292e;
+    color: #fff;
     text-align: center;
 }

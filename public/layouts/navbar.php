@@ -1,5 +1,5 @@
 <div class="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/">
             <h2>Life System</h2>
         </a>
@@ -9,7 +9,7 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/expenses.php">Expenses</a>
+                    <a class="nav-link" href="/expenses">Expenses</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/revenues.php">Revenues</a>
