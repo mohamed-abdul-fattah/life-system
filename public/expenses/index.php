@@ -72,6 +72,7 @@
                                     <th>Amount</th>
                                     <th>Comment</th>
                                     <th>Date</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -80,6 +81,16 @@
                                         <td><?php echo $expense->amount ?></td>
                                         <td><?php echo $expense->comment ?></td>
                                         <td><?php echo date('d-M-Y', strtotime($expense->created_at)) ?></td>
+                                        <td>
+                                            <form action="<?php echo url('expenses/delete.php') ?>" method="POST">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button class="btn btn-sm btn-danger"
+                                                        title="Delete"
+                                                        type="submit">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     <?php endwhile; ?>
                                 </tbody>
