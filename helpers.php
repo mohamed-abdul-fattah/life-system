@@ -45,3 +45,19 @@ if (! function_exists('url'))
         return "http://life-system.local/". $url;
     }
 }
+
+if (! function_exists('redirect'))
+{
+    /**
+     * Redirect to the desired URL
+     * 
+     * @param  string $url
+     * @return void
+     */
+    function redirect(string $url = null)
+    {
+        $fullPath = url($url);
+
+        return header("Location: {$fullPath}");
+    }
+}

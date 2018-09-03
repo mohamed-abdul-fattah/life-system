@@ -84,6 +84,7 @@
                                         <td>
                                             <form action="<?php echo url('expenses/delete.php') ?>" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="expenseId" value="<?php echo $expense->id ?>">
                                                 <button class="btn btn-sm btn-danger"
                                                         title="Delete"
                                                         type="submit">
