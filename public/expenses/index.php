@@ -85,7 +85,7 @@
                                             <form action="<?php echo url('expenses/delete.php') ?>" method="POST">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="expenseId" value="<?php echo $expense->id ?>">
-                                                <button class="btn btn-sm btn-danger"
+                                                <button class="btn btn-sm btn-danger delete-expense"
                                                         title="Delete"
                                                         type="submit">
                                                     <i class="fa fa-trash" aria-hidden="true"></i>
@@ -134,5 +134,19 @@
     </div>
 </div>
 <?php include public_path("layouts/footer.php") ?>
+<script>
+    let forms = document.querySelectorAll('form');
+
+    Array.from(forms).forEach((form) => {
+        form.addEventListener('submit', function (evt) {
+            evt.preventDefault();
+            let conf = confirm('Are you sure you want to delete this record?');
+
+            if (conf) {
+                form.submit();
+            }
+        }, true);
+    });
+</script>
 </body>
 </html>
