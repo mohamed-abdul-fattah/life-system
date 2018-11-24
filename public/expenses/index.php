@@ -5,7 +5,8 @@
     $offset     = ($currentPage - 1) * $perPage;
 
     $connection = mysqli_connect('localhost', 'root', 'toor', 'abdul_fattah');
-    $query      =  "SELECT * FROM `transactions` 
+    $query      =  "SELECT * FROM `transactions`
+                    ORDER By `transactions`.`created_at` DESC
                     LIMIT {$perPage} 
                     OFFSET {$offset}";
     $countQuery = "SELECT COUNT(*) as total FROM `transactions`";
