@@ -13,9 +13,10 @@
     $expenses   = mysqli_query($connection, $query);
     $count      = mysqli_query($connection, $countQuery);
     $total      = mysqli_fetch_object($count)->total;
+    $totalPages = ceil($total / $perPage);
 
     $firstPage  = 1;
-    $lastPage   = ceil($total / $perPage);
+    $lastPage   = $totalPages;
 
     /**
      * Storing new expense
@@ -107,7 +108,23 @@
                                                 Previous
                                             </a>
                                         </li>
-                                        <?php for ($page = 1; $page <= ceil($total / $perPage); $page++): ?>
+                                        <?php if ($totalPages <= 10): ?>
+                                            <?php for ($page = 1; $page <= $totalPages; $page++): ?>
+                                                <li class="page-item <?php if ($page == $currentPage) echo 'active'; ?>">
+                                                    <?php if ($page == $currentPage): ?>
+                                                        <span class="page-link">
+                                                            <?php echo $page ?>
+                                                            <span class="sr-only">(current)</span>
+                                                        </span>
+                                                    <?php else: ?>
+                                                        <a class="page-link" href="<?php echo url('expenses/?page='). $page ?>">
+                                                            <?php echo $page ?>
+                                                        </a>
+                                                    <?php endif; ?>
+                                                </li>
+                                            <?php endfor ?>
+                                        <?php else: ?>
+                                            <?php for ($page = 1; $page <= 5; $page++): ?>
                                             <li class="page-item <?php if ($page == $currentPage) echo 'active'; ?>">
                                                 <?php if ($page == $currentPage): ?>
                                                     <span class="page-link">
@@ -118,9 +135,23 @@
                                                     <a class="page-link" href="<?php echo url('expenses/?page='). $page ?>">
                                                         <?php echo $page ?>
                                                     </a>
-                                                <?php endif; ?>
+                                                <?php endif ?>
                                             </li>
-                                        <?php endfor ?>
+                                            <?php endfor ?>
+                                            <li class="page-item"><a class="page-link">...</a></li>
+                                            <li class="page-item" <?php if ($lastPage == $currentPage) echo 'active'; ?>">
+                                                <?php if ($lastPage == $currentPage): ?>
+                                                    <span class="page-link">
+                                                            <?php echo $lastPage ?>
+                                                        <span class="sr-only">(current)</span>
+                                                        </span>
+                                                <?php else: ?>
+                                                    <a class="page-link" href="<?php echo url('expenses/?page='). $lastPage ?>">
+                                                        <?php echo $lastPage ?>
+                                                    </a>
+                                                <?php endif ?>
+                                            </li>
+                                        <?php endif ?>
                                         <li class="page-item <?php if ($currentPage == $lastPage) echo 'disabled'; ?>">
                                             <a class="page-link" href="<?php echo url('expenses/?page='). ($currentPage + 1) ?>">Next</a>
                                         </li>
