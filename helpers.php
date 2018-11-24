@@ -3,7 +3,7 @@
 if (! function_exists('public_path'))
 {
     /**
-     * Return public path concatenated with the provieded path
+     * Return public path concatenated with the provided path
      *
      * @param  string $path
      * @return string 
@@ -50,14 +50,14 @@ if (! function_exists('redirect'))
 {
     /**
      * Redirect to the desired URL
-     * 
-     * @param  string $url
+     *
+     * @param  string|null $url
      * @return void
      */
     function redirect(string $url = null)
     {
         $fullPath = url($url);
 
-        return header("Location: {$fullPath}");
+        header("Location: {$fullPath}");
     }
 }

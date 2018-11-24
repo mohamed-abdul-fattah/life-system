@@ -1,8 +1,6 @@
 <?php
     include __DIR__. "/../../helpers.php";
 
-
-
     if ($_POST['_method'] === 'DELETE') {
         $expenseId = $_POST['expenseId'];
 
@@ -15,6 +13,6 @@
         }
     }
 
-    // Needs a session message
+    // TODO: Needs a session message
 
     redirect('/expenses/');
