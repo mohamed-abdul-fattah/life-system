@@ -4,7 +4,7 @@
     $currentPage= $_GET['page'] ?? 1;
     $offset     = ($currentPage - 1) * $perPage;
 
-    $connection = mysqli_connect('localhost', 'root', 'toor', 'abdul_fattah');
+    $connection = mysqli_connect('localhost', 'root', '123456', 'abdul_fattah');
     $query      =  "SELECT * FROM `transactions`
                     ORDER By `transactions`.`created_at` DESC
                     LIMIT {$perPage} 
