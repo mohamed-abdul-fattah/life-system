@@ -38,6 +38,8 @@
             $message = 'Whoops, something went wrong!';
             $alert   = 'danger';
         }
+
+        redirect('/expenses');
     }
 ?>
 

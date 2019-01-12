@@ -38,6 +38,12 @@ body {
     color: #fff;
 }
 
+.month-summary {
+    font-size: 4rem;
+    width: 100%;
+    text-align: center;
+}
+
 footer {
     min-height: 8vh;
     background-color: #24292e;
