@@ -51,7 +51,10 @@
 ?>
 <body>
 <div id="app">
-    <?php include public_path("layouts/navbar.php") ?>
+    <?php
+        $activeItem = 'expenses';
+        include public_path("layouts/navbar.php")
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-12">
