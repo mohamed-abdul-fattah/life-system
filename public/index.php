@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-    include __DIR__. "/../helpers.php";
+<?php
+    include __DIR__ . "/../helpers.php";
     include public_path("layouts/header.php");
 ?>
 <body>
