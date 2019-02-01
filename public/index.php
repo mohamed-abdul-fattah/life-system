@@ -26,7 +26,7 @@
                 } else {
                     echo "text-danger";
                 }
-              ?>"><?php echo $monthTotal; ?> <i class="fa fa-money" aria-hidden="true"></i></p>
+              ?>"><?php echo (float) $monthTotal; ?> <i class="fa fa-money" aria-hidden="true"></i></p>
             </div>
         </div>
     </div>
