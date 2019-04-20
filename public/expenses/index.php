@@ -1,5 +1,7 @@
 <?php
-    include __DIR__. "/../../helpers.php";
+    require_once __DIR__. "/../../helpers.php";
+    require_auth();
+
     $perPage    = 15;
     $currentPage= $_GET['page'] ?? 1;
     $offset     = ($currentPage - 1) * $perPage;
@@ -47,13 +49,13 @@
 <html lang="en">
 <?php
     $title = 'Expenses';
-    include public_path("layouts/header.php");
+    include public_path('layouts/header.php');
 ?>
 <body>
 <div id="app">
     <?php
         $activeItem = 'expenses';
-        include public_path("layouts/navbar.php")
+        include public_path('layouts/navbar.php')
     ?>
     <div class="container">
         <div class="row">

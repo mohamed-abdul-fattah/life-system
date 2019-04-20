@@ -60,3 +60,27 @@ if ( ! function_exists('redirect') ) {
         die;
     }
 }
+
+if ( ! function_exists('auth_check') ) {
+    /**
+     * Checks whether a user is logged in or not.
+     *
+     * @return bool
+     */
+    function auth_check(): bool
+    {
+        return (bool) $_SESSION['isLoggedIn'] ?? false;
+    }
+}
+
+if ( ! function_exists('require_auth') ) {
+    /**
+     * The requested web page requires authentication.
+     */
+    function require_auth()
+    {
+        if ( ! auth_check() ) {
+            redirect('/login.php');
+        }
+    }
+}
