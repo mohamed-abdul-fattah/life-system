@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__. '/../../helpers.php';
+require_once __DIR__ . '/../../helpers.php';
 require_auth();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    $title = 'Add Expense';
-    include public_path('layouts/header.php');
+$title = 'Add Expense';
+include public_path('layouts/header.php');
 ?>
 <body>
 <div id="app">
@@ -38,7 +38,13 @@ require_auth();
                             <div class="form-group row">
                                 <label for="comment" class="col-sm-2 col-form-label">Comment</label>
                                 <div class="col-sm-10">
-                                    <textarea name="comment" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+                                    <textarea name="comment"
+                                              id="comment"
+                                              cols="30"
+                                              rows="5"
+                                              class="form-control"
+                                              required>
+                                    </textarea>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +62,9 @@ require_auth();
                         <div class="panel-body">
                             <div class="form-group row">
                                 <div class="col-sm-10">
-                                    <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" name="submit" value="submit" class="btn btn-primary">
+                                        Submit
+                                    </button>
                                 </div>
                             </div>
                         </div>
