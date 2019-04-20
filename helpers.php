@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 if ( ! function_exists('public_path') ) {
     /**
      * Return public path concatenated with the provided path
@@ -55,5 +57,6 @@ if ( ! function_exists('redirect') ) {
         $fullPath = url($url);
 
         header("Location: {$fullPath}");
+        die;
     }
 }
