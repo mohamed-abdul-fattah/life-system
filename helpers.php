@@ -1,27 +1,25 @@
 <?php
 
-if (! function_exists('public_path'))
-{
+if ( ! function_exists('public_path') ) {
     /**
      * Return public path concatenated with the provided path
      *
-     * @param  string $path
-     * @return string 
+     * @param string $path
+     * @return string
      */
     function public_path(string $path = ""): string
     {
-        $path = ($path) ? leading_slash($path) : null;
+        $path = ($path) ? leading_slash($path) : NULL;
 
-        return __DIR__. "/public/" . $path;
+        return __DIR__ . '/public/' . $path;
     }
 }
 
-if (! function_exists('leading_slash'))
-{
+if ( ! function_exists('leading_slash') ) {
     /**
      * Make sure that the given string has no leading back-slash
      *
-     * @param  string $path
+     * @param string $path
      * @return string
      */
     function leading_slash(string $path): string
@@ -30,31 +28,29 @@ if (! function_exists('leading_slash'))
     }
 }
 
-if (! function_exists('url'))
-{
+if ( ! function_exists('url') ) {
     /**
      * Return the website URL
      *
-     * @param  string $url
+     * @param string $url
      * @return string
      */
-    function url(string $url = null): string
+    function url(string $url = NULL): string
     {
-        $url = ($url) ? leading_slash($url) : null;
+        $url = ($url) ? leading_slash($url) : NULL;
 
-        return "http://life-system.local/". $url;
+        return 'http://life-system.local/' . $url;
     }
 }
 
-if (! function_exists('redirect'))
-{
+if ( ! function_exists('redirect') ) {
     /**
      * Redirect to the desired URL
      *
-     * @param  string|null $url
+     * @param string|null $url
      * @return void
      */
-    function redirect(string $url = null)
+    function redirect(string $url = NULL)
     {
         $fullPath = url($url);
 
