@@ -1,5 +1,7 @@
 <?php
 
+/** Prevent uninitialized SESSION_ID from browser */
+ini_set('session.use_strict_mode', 1);
 session_start();
 
 if ( ! function_exists('public_path') ) {
