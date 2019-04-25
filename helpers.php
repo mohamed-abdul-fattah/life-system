@@ -73,7 +73,9 @@ if ( ! function_exists('auth_check') ) {
      */
     function auth_check(): bool
     {
-        return (bool) $_SESSION['isLoggedIn'] ?? false;
+        return (bool) (isset($_SESSION['isLoggedIn']))
+            ? $_SESSION['isLoggedIn']
+            : false;
     }
 }
 
