@@ -2,6 +2,7 @@
 
 /** Prevent uninitialized SESSION_ID from browser */
 ini_set('session.use_strict_mode', 1);
+ini_set('session.name', 'token');
 session_set_cookie_params(1800, '/', '', false, true);
 session_start();
 

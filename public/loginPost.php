@@ -14,6 +14,7 @@ if (
     && $password === 'secret'
 ) {
     $_SESSION['isLoggedIn'] = true;
+    session_regenerate_id(true);
     redirect('/');
 }
 
