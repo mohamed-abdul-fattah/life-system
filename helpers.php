@@ -88,3 +88,15 @@ if ( ! function_exists('require_auth') ) {
         }
     }
 }
+
+if ( ! function_exists('guest_check') ) {
+    /**
+     * User cannot access the page unless he is logged out.
+     */
+    function guest_check()
+    {
+        if ( auth_check() ) {
+            redirect('/');
+        }
+    }
+}

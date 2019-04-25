@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../helpers.php';
+guest_check();
 
 if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
     redirect('/');

@@ -1,4 +1,7 @@
-<?php require_once __DIR__ . '/../helpers.php' ?>
+<?php
+require_once __DIR__ . '/../helpers.php';
+guest_check();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php $title = 'Login' ?>
