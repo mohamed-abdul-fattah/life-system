@@ -7,7 +7,12 @@ require_auth();
 <?php include public_path('layouts/header.php'); ?>
 <?php
 $month = date('Y-m-00');
-$connection = mysqli_connect('localhost', 'root', '123456', 'abdul_fattah');
+$connection = mysqli_connect(
+        getConfig('DB_HOST'),
+        getConfig('DB_USER'),
+        getConfig('DB_PASS'),
+        getConfig('DB_NAME')
+);
 $query = "SELECT SUM(`amount`) AS 'total' FROM `transactions` WHERE `created_at` > '{$month}'";
 $sumQuery = mysqli_query($connection, $query);
 $monthTotal = mysqli_fetch_object($sumQuery)->total;

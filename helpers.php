@@ -102,3 +102,27 @@ if ( ! function_exists('guest_check') ) {
         }
     }
 }
+
+if ( ! function_exists('getConfig') ) {
+    /**
+     * Get configurations array, or a single key.
+     *
+     * @param null $key
+     * @return mixed
+     * @throws Exception
+     */
+    function getConfig($key = NULL)
+    {
+        $configs = @include __DIR__ . '/configs.php';
+
+        if ( ! is_array($configs) ) {
+            throw new Exception('Cannot load configs', 500);
+        }
+
+        if ( ! is_null($key) ) {
+            return $configs[$key];
+        }
+
+        return $configs;
+    }
+}

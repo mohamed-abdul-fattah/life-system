@@ -6,7 +6,12 @@ $perPage = 15;
 $currentPage = $_GET['page'] ?? 1;
 $offset = ($currentPage - 1) * $perPage;
 
-$connection = mysqli_connect('localhost', 'root', '123456', 'abdul_fattah');
+$connection = mysqli_connect(
+        getConfig('DB_HOST'),
+        getConfig('DB_USER'),
+        getConfig('DB_PASS'),
+        getConfig('DB_NAME')
+);
 $query = "SELECT * FROM `transactions`
             ORDER By `transactions`.`created_at` DESC
             LIMIT {$perPage} 
