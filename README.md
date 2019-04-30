@@ -1,6 +1,10 @@
 # Overview
 Life system is built to watch your daily life and utilize your time and money wisely.
 
+# Configurations
+## Environment Variables
+Copy and rename the configs.php.example to configs.php, then change the values to what values correspond to your environment.
+
 # Database Architecture
 ## Transactions Table
 
