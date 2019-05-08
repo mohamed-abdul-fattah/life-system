@@ -11,8 +11,8 @@ $username = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 
 if (
-    $username === 'csmohamed8@gmail.com'
-    && $password === 'secret'
+    $username === getConfig('ADMIN')
+    && $password === getConfig('PASSWORD')
 ) {
     $_SESSION['isLoggedIn'] = true;
     session_regenerate_id(true);

@@ -1,7 +1,7 @@
 <div class="header">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/">
-            <h2>Life System</h2>
+            <h2><?php echo getConfig('APP_NAME', 'Life System') ?></h2>
         </a>
         <div id="navbarNav">
             <ul class="navbar-nav">
