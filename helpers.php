@@ -107,11 +107,12 @@ if ( ! function_exists('getConfig') ) {
     /**
      * Get configurations array, or a single key.
      *
-     * @param null $key
+     * @param string|null $key
+     * @param string|null $default
      * @return mixed
      * @throws Exception
      */
-    function getConfig($key = NULL)
+    function getConfig($key = NULL, $default = NULL)
     {
         $configs = @include __DIR__ . '/configs.php';
 
@@ -120,7 +121,11 @@ if ( ! function_exists('getConfig') ) {
         }
 
         if ( ! is_null($key) ) {
-            return $configs[$key];
+            if ( array_key_exists($key, $configs) ) {
+                return $configs[$key];
+            } else {
+                return $default;
+            }
         }
 
         return $configs;

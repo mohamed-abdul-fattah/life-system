@@ -4,8 +4,11 @@
  * System Configuration Variables.
  */
 return [
-    'DB_HOST' => 'localhost',
-    'DB_NAME' => 'database_name',
-    'DB_USER' => 'database_username',
-    'DB_PASS' => 'database_password',
+    'DB_HOST'  => 'localhost',
+    'DB_NAME'  => 'database_name',
+    'DB_USER'  => 'database_username',
+    'DB_PASS'  => 'database_password',
+    'ADMIN'    => 'admin_username',
+    'PASSWORD' => 'admin password',
+    'APP_NAME' => 'application name',
 ];
