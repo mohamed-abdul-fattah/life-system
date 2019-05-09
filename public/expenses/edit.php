@@ -34,7 +34,8 @@ include public_path('layouts/header.php');
                         <hr>
                     </div>
                     <div class="panel-body">
-                        <form action="<?php echo url('expenses/update.php') ?>" method="POST">
+                        <form action="<?php echo url('expenses/update.php?id=') . $expense->id ?>" method="POST">
+                            <input type="hidden" name="_method" value="PUT">
                             <!-- Amount -->
                             <div class="form-group row">
                                 <label for="amount" class="col-sm-2 col-form-label">Amount</label>
