@@ -11,7 +11,6 @@ $connection = open_connection();
 $query = "SELECT SUM(`amount`) AS 'total' FROM `transactions` WHERE `created_at` > '{$month}'";
 $sumQuery = mysqli_query($connection, $query);
 $monthTotal = mysqli_fetch_object($sumQuery)->total;
-close_connection($connection);
 ?>
 <body>
 <div id="app">

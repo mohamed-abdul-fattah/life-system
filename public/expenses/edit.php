@@ -11,7 +11,6 @@ if ( empty($id) ) {
 $connection = open_connection();
 $query = "SELECT * FROM `transactions` WHERE `transactions`.`id`={$id}";
 $expense = mysqli_fetch_object(mysqli_query($connection, $query));
-close_connection($connection);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +33,9 @@ include public_path('layouts/header.php');
                         </a>
                         <hr>
                     </div>
-                    <form action="<?php echo url('expenses/update.php') ?>" method="POST">
-                        <!-- Amount -->
-                        <div class="panel-body">
+                    <div class="panel-body">
+                        <form action="<?php echo url('expenses/update.php') ?>" method="POST">
+                            <!-- Amount -->
                             <div class="form-group row">
                                 <label for="amount" class="col-sm-2 col-form-label">Amount</label>
                                 <div class="col-sm-10">
@@ -45,29 +44,24 @@ include public_path('layouts/header.php');
                                            type="text"
                                            class="form-control"
                                            required="required"
-                                           value="<?php echo htmlentities($expense->amount) ?>"
-                                    >
+                                           value="<?php echo htmlentities($expense->amount) ?>">
                                 </div>
                             </div>
-                        </div>
-                        <!-- Comment -->
-                        <div class="panel-body">
+                            <!-- Comment -->
                             <div class="form-group row">
                                 <label for="comment" class="col-sm-2 col-form-label">Comment</label>
                                 <div class="col-sm-10">
-                                    <textarea name="comment"
-                                              id="comment"
-                                              cols="30"
-                                              rows="5"
-                                              class="form-control"
-                                              required="required">
-                                        <?php echo nl2br(htmlentities($expense->comment)) ?>
-                                    </textarea>
+                                        <textarea name="comment"
+                                                  id="comment"
+                                                  cols="30"
+                                                  rows="5"
+                                                  class="form-control"
+                                                  required="required">
+                                            <?php echo nl2br(htmlentities($expense->comment)) ?>
+                                        </textarea>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Date -->
-                        <div class="panel-body">
+                            <!-- Date -->
                             <div class="form-group row">
                                 <label for="created_at" class="col-sm-2 col-form-label">Date</label>
                                 <div class="col-sm-10">
@@ -76,14 +70,11 @@ include public_path('layouts/header.php');
                                         name="created_at"
                                         type="date"
                                         class="form-control"
-                                        value="<?php echo date('Y-m-d', strtotime($expense->created_at)) ?>"
-                                    >
+                                        value="<?php echo date('Y-m-d', strtotime($expense->created_at)) ?>">
                                 </div>
                             </div>
-                        </div>
-                        <hr>
-                        <!-- Submit button -->
-                        <div class="panel-body">
+                            <hr>
+                            <!-- Submit button -->
                             <div class="form-group row">
                                 <div class="col-sm-10">
                                     <button type="submit" name="submit" value="submit" class="btn btn-primary">
@@ -91,8 +82,8 @@ include public_path('layouts/header.php');
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

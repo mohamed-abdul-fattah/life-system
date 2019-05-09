@@ -43,7 +43,6 @@ if ( isset($_POST['submit']) ) {
 
     redirect('/expenses');
 }
-close_connection($connection);
 ?>
 
 <!DOCTYPE html>
