@@ -44,6 +44,10 @@ body {
     text-align: center;
 }
 
+.btn-action {
+    margin: 0 3px;
+}
+
 footer {
     min-height: 8vh;
     background-color: #24292e;

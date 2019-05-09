@@ -96,16 +96,25 @@ include public_path('layouts/header.php');
                                         <td><?php echo $expense->comment ?></td>
                                         <td><?php echo date('d-M-Y', strtotime($expense->created_at)) ?></td>
                                         <td>
-                                            <form action="<?php echo url('expenses/delete.php') ?>" method="POST">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="expenseId"
-                                                       value="<?php echo $expense->id ?>">
-                                                <button class="btn btn-sm btn-danger delete-expense"
-                                                        title="Delete"
-                                                        type="submit">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                                </button>
-                                            </form>
+                                            <div class="row">
+                                                <div class="btn-action">
+                                                    <a href="<?php echo url('expenses/edit.php?id=') . $expense->id; ?>" class="btn btn-sm btn-warning">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="btn-action">
+                                                    <form action="<?php echo url('expenses/delete.php') ?>" method="POST">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <input type="hidden" name="expenseId"
+                                                               value="<?php echo $expense->id ?>">
+                                                        <button class="btn btn-sm btn-danger delete-expense"
+                                                                title="Delete"
+                                                                type="submit">
+                                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endwhile ?>
