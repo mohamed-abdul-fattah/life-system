@@ -131,3 +131,40 @@ if ( ! function_exists('getConfig') ) {
         return $configs;
     }
 }
+
+if ( ! function_exists('open_connection') ) {
+    /**
+     * Open database connection
+     *
+     * @return false|mysqli
+     * @throws Exception
+     */
+    function open_connection()
+    {
+        $connection = mysqli_connect(
+            getConfig('DB_HOST'),
+            getConfig('DB_USER'),
+            getConfig('DB_PASS'),
+            getConfig('DB_NAME')
+        );
+
+        if ( mysqli_connect_errno() ) {
+            printf("Connection failed: %s\n", mysqli_connect_error());
+            exit();
+        }
+
+        return $connection;
+    }
+}
+
+if ( ! function_exists('close_connection') ) {
+    /**
+     * Close database connection
+     *
+     * @param mysqli $connection
+     */
+    function close_connection($connection)
+    {
+        mysqli_close($connection);
+    }
+}

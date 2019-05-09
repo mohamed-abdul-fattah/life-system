@@ -6,9 +6,10 @@ if ( $_POST['_method'] === 'DELETE' ) {
     $expenseId = $_POST['expenseId'];
 
     if ( $expenseId ) {
-        $connection = mysqli_connect('localhost', 'root', '123456', 'abdul_fattah');
-        $query = "DELETE FROM `transactions` WHERE `id` = " . $expenseId;
+        $connection = open_connection();
+        $query = "DELETE FROM `transactions` WHERE `transactions`.`id`={$expenseId}";
         mysqli_query($connection, $query);
+        close_connection($connection);
 
         // Needs error handling
     }

@@ -6,12 +6,7 @@ $perPage = 15;
 $currentPage = $_GET['page'] ?? 1;
 $offset = ($currentPage - 1) * $perPage;
 
-$connection = mysqli_connect(
-        getConfig('DB_HOST'),
-        getConfig('DB_USER'),
-        getConfig('DB_PASS'),
-        getConfig('DB_NAME')
-);
+$connection = open_connection();
 $query = "SELECT * FROM `transactions`
             ORDER By `transactions`.`created_at` DESC
             LIMIT {$perPage} 
@@ -48,6 +43,7 @@ if ( isset($_POST['submit']) ) {
 
     redirect('/expenses');
 }
+close_connection($connection);
 ?>
 
 <!DOCTYPE html>

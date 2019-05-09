@@ -8,21 +8,10 @@ if ( empty($id) ) {
     redirect('/expenses');
 }
 
-$connection = mysqli_connect(
-    getConfig('DB_HOST'),
-    getConfig('DB_USER'),
-    getConfig('DB_PASS'),
-    getConfig('DB_NAME')
-);
-
-if ( mysqli_connect_errno() ) {
-    printf("Connection failed: %s\n", mysqli_connect_error());
-    exit();
-}
-
+$connection = open_connection();
 $query = "SELECT * FROM `transactions` WHERE `transactions`.`id`={$id}";
 $expense = mysqli_fetch_object(mysqli_query($connection, $query));
-
+close_connection($connection);
 ?>
 <!DOCTYPE html>
 <html lang="en">
