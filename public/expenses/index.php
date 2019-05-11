@@ -19,30 +19,6 @@ $totalPages = ceil($total / $perPage);
 
 $firstPage = 1;
 $lastPage = $totalPages;
-
-/**
- * Storing new expense
- */
-if ( isset($_POST['submit']) ) {
-    $amount = $_POST['amount'];
-    $comment = $_POST['comment'];
-    $date = ($_POST['created_at']) ? $_POST['created_at'] : date('Y-m-d');
-
-    $query = "INSERT INTO `transactions` (`amount`, `comment`, `created_at`)
-                VALUES ({$amount}, '{$comment}', '{$date}')";
-
-    $result = mysqli_query($connection, $query);
-
-    if ( $result ) {
-        $message = 'Expense added successfully';
-        $alert = 'success';
-    } else {
-        $message = 'Whoops, something went wrong!';
-        $alert = 'danger';
-    }
-
-    redirect('/expenses');
-}
 ?>
 
 <!DOCTYPE html>

@@ -24,12 +24,12 @@ include public_path('layouts/header.php');
                         <hr>
                     </div>
                     <div class="panel-body">
-                        <form action="<?php echo url('expenses/index.php') ?>" method="POST">
+                        <form action="<?php echo url('expenses/store.php') ?>" method="POST">
                             <!-- Amount -->
                             <div class="form-group row">
                                 <label for="amount" class="col-sm-2 col-form-label">Amount</label>
                                 <div class="col-sm-10">
-                                    <input id="amount" name="amount" type="text" class="form-control" required>
+                                    <input id="amount" name="amount" type="number" class="form-control" required>
                                 </div>
                             </div>
                             <!-- Comment -->
@@ -41,8 +41,7 @@ include public_path('layouts/header.php');
                                                   cols="30"
                                                   rows="5"
                                                   class="form-control"
-                                                  required>
-                                        </textarea>
+                                                  required></textarea>
                                 </div>
                             </div>
                             <!-- Date -->
