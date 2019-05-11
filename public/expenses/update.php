@@ -16,8 +16,16 @@ if ( $_POST['_method'] === 'PUT' && ! empty($id) ) {
                   `transactions`.`comment`='{$comment}',
                   `transactions`.`created_at`='{$date}'
               WHERE `transactions`.`id`={$id}";
-    mysqli_query($connection, $query);
-    redirect('/expenses/edit.php?id=' . $id);
+    $update = mysqli_query($connection, $query);
+
+    if ( $update ) {
+        session_push('message', 'Expense updated successfully');
+        session_push('alert', 'success');
+    } else {
+        session_push('message', 'Whoops, something went wrong');
+        session_push('alert', 'danger');
+    }
+    close_connection($connection);
 }
 
 redirect('/expenses');

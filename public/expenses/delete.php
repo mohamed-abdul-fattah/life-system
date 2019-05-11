@@ -8,13 +8,17 @@ if ( $_POST['_method'] === 'DELETE' ) {
     if ( $expenseId ) {
         $connection = open_connection();
         $query = "DELETE FROM `transactions` WHERE `transactions`.`id`={$expenseId}";
-        mysqli_query($connection, $query);
-        close_connection($connection);
+        $delete = mysqli_query($connection, $query);
 
-        // Needs error handling
+        if ( $delete ) {
+            session_push('message', 'Expense deleted successfully');
+            session_push('alert', 'success');
+        } else {
+            session_push('message', 'Whoops, something went wrong');
+            session_push('alert', 'danger');
+        }
+        close_connection($connection);
     }
 }
-
-// TODO: Needs a session message
 
 redirect('/expenses/');

@@ -1,6 +1,6 @@
 <?php
 
-require_once  __DIR__ . '/../../helpers.php';
+require_once __DIR__ . '/../../helpers.php';
 require_auth();
 
 if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
@@ -21,6 +21,7 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
         session_push('message', 'Whoops, something went wrong!');
         session_push('alert', 'danger');
     }
+    close_connection($connection);
 }
 
 redirect('/expenses');
