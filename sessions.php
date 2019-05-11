@@ -13,7 +13,7 @@ if ( ! function_exists('session_push') ) {
      * @param string $key
      * @param mixed  $value
      */
-    function session_push($key, $value)
+    function session_push(string $key, $value)
     {
         $_SESSION[$key] = $value;
     }
@@ -25,7 +25,7 @@ if ( ! function_exists('session_pull') ) {
      * @param mixed|null $default
      * @return mixed|null
      */
-    function session_pull($key, $default = NULL)
+    function session_pull(string $key, $default = NULL)
     {
         if ( array_key_exists($key, $_SESSION) ) {
             $value = $_SESSION[$key];
@@ -45,7 +45,7 @@ if ( ! function_exists('session_has') ) {
      * @param string $key
      * @return bool
      */
-    function session_has($key)
+    function session_has(string $key): bool
     {
         return array_key_exists($key, $_SESSION);
     }

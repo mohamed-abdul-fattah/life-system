@@ -11,4 +11,5 @@ return [
     'ADMIN'    => 'admin_username',
     'PASSWORD' => 'admin password',
     'APP_NAME' => 'application name',
+    'APP_URL'  => 'http://localhost/',
 ];

@@ -34,7 +34,7 @@ if ( ! function_exists('set_charset') ) {
      * @param string $charset
      * @throws Exception
      */
-    function set_charset($connection, $charset)
+    function set_charset($connection, string $charset)
     {
         if ( ! mysqli_set_charset($connection, $charset) ) {
             throw new Exception(

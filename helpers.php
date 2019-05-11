@@ -10,24 +10,38 @@ if ( ! function_exists('public_path') ) {
      * @param string $path
      * @return string
      */
-    function public_path(string $path = ""): string
+    function public_path(string $path = ''): string
     {
-        $path = ($path) ? leading_slash($path) : NULL;
+        $path = ($path) ? no_leading_slash($path) : NULL;
 
         return __DIR__ . '/public/' . $path;
     }
 }
 
-if ( ! function_exists('leading_slash') ) {
+if ( ! function_exists('no_leading_slash') ) {
     /**
      * Make sure that the given string has no leading back-slash
      *
      * @param string $path
      * @return string
      */
-    function leading_slash(string $path): string
+    function no_leading_slash(string $path): string
     {
         return ($path[0] === '/') ? substr($path, 1) : $path;
+    }
+}
+
+if ( ! function_exists('trailing_slash') ) {
+    /**
+     * Ensure that the given URL has a trailing slash at the end
+     *
+     * @param string $url
+     * @return string
+     */
+    function trailing_slash(string $url): string
+    {
+        $urlLength = strlen($url);
+        return ($url[$urlLength - 1] === '/') ? $url : $url . '/';
     }
 }
 
@@ -37,12 +51,27 @@ if ( ! function_exists('url') ) {
      *
      * @param string $url
      * @return string
+     * @throws Exception
      */
     function url(string $url = NULL): string
     {
-        $url = ($url) ? leading_slash($url) : NULL;
+        $url = ($url) ? no_leading_slash($url) : NULL;
 
-        return 'http://life-system.local/' . $url;
+        return base_url() . $url;
+    }
+}
+
+if ( ! function_exists('base_url') ) {
+    /**
+     * Get application base URL
+     *
+     * @return string
+     * @throws Exception
+     */
+    function base_url(): string
+    {
+        $url = getConfig('APP_URL', 'http://localhost/');
+        return trailing_slash($url);
     }
 }
 
@@ -52,6 +81,7 @@ if ( ! function_exists('redirect') ) {
      *
      * @param string|null $url
      * @return void
+     * @throws Exception
      */
     function redirect(string $url = NULL)
     {
@@ -79,6 +109,8 @@ if ( ! function_exists('auth_check') ) {
 if ( ! function_exists('require_auth') ) {
     /**
      * The requested web page requires authentication.
+     *
+     * @throws Exception
      */
     function require_auth()
     {
@@ -91,6 +123,8 @@ if ( ! function_exists('require_auth') ) {
 if ( ! function_exists('guest_check') ) {
     /**
      * User cannot access the page unless he is logged out.
+     *
+     * @throws Exception
      */
     function guest_check()
     {
@@ -109,7 +143,7 @@ if ( ! function_exists('getConfig') ) {
      * @return mixed
      * @throws Exception
      */
-    function getConfig($key = NULL, $default = NULL)
+    function getConfig(string $key = NULL, $default = NULL)
     {
         $configs = @include __DIR__ . '/configs.php';
 
@@ -128,7 +162,6 @@ if ( ! function_exists('getConfig') ) {
         return $configs;
     }
 }
-
 
 
 if ( ! function_exists('dd') ) {
