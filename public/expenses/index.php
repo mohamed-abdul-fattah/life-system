@@ -93,6 +93,7 @@ include public_path('layouts/header.php');
                             </table>
 
                             <!-- Pagination -->
+                            <?php // TODO: Update pagination to be dynamic with the current page ?>
                             <?php if ( $total ): ?>
                                 <nav aria-label="...">
                                     <ul class="pagination">
