@@ -13,8 +13,8 @@ if ( $_POST['_method'] === 'PUT' && ! empty($id) ) {
     $id = mysqli_real_escape_string($connection, $id);
     $query = "UPDATE `transactions`
               SET `transactions`.`amount`={$amount},
-                  `transactions`.`comment`={$comment},
-                  `transactions`.`created_at`={$date}
+                  `transactions`.`comment`='{$comment}',
+                  `transactions`.`created_at`='{$date}'
               WHERE `transactions`.`id`={$id}";
     mysqli_query($connection, $query);
     redirect('/expenses/edit.php?id=' . $id);
