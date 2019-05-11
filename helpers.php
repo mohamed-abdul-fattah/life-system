@@ -149,11 +149,31 @@ if ( ! function_exists('open_connection') ) {
         );
 
         if ( mysqli_connect_errno() ) {
-            printf("Connection failed: %s\n", mysqli_connect_error());
-            exit();
+            throw new Exception('Connection failed: ' . mysqli_connect_error(), 500);
         }
 
+        set_charset($connection, 'utf8');
+
         return $connection;
+    }
+}
+
+if ( ! function_exists('set_charset') ) {
+    /**
+     * Set database charset names.
+     *
+     * @param mysqli $connection
+     * @param string $charset
+     * @throws Exception
+     */
+    function set_charset($connection, $charset)
+    {
+        if ( ! mysqli_set_charset($connection, $charset) ) {
+            throw new Exception(
+                "Error loading character set {$charset} " . mysqli_error($connection),
+                500
+            );
+        }
     }
 }
 
@@ -166,5 +186,17 @@ if ( ! function_exists('close_connection') ) {
     function close_connection($connection)
     {
         mysqli_close($connection);
+    }
+}
+
+if ( ! function_exists('dd') ) {
+    /**
+     * Die and dump.
+     *
+     * @param mixed $dump
+     */
+    function dd($dump)
+    {
+        die(var_dump($dump));
     }
 }
