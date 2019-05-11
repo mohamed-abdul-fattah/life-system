@@ -22,7 +22,7 @@ if ( $_POST['_method'] === 'PUT' && ! empty($id) ) {
         session_push('message', 'Expense updated successfully');
         session_push('alert', 'success');
     } else {
-        session_push('message', 'Whoops, something went wrong');
+        session_push('message', 'Whoops, something went wrong!');
         session_push('alert', 'danger');
     }
     close_connection($connection);

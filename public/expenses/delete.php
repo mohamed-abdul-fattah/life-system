@@ -14,7 +14,7 @@ if ( $_POST['_method'] === 'DELETE' ) {
             session_push('message', 'Expense deleted successfully');
             session_push('alert', 'success');
         } else {
-            session_push('message', 'Whoops, something went wrong');
+            session_push('message', 'Whoops, something went wrong!');
             session_push('alert', 'danger');
         }
         close_connection($connection);
