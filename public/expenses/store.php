@@ -14,6 +14,13 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
 
     $result = mysqli_query($connection, $query);
 
+    if ( $result ) {
+        session_push('message', 'Expense added successfully');
+        session_push('alert', 'success');
+    } else {
+        session_push('message', 'Whoops, something went wrong!');
+        session_push('alert', 'danger');
+    }
 }
 
 redirect('/expenses');

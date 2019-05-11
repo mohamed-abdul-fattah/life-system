@@ -36,9 +36,9 @@ include public_path('layouts/header.php');
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <?php if ( isset($message) ): ?>
-                    <div class="alert alert-<?php echo $alert ?> mt-3">
-                        <?php echo $message ?>
+                <?php if ( session_has('message') ): ?>
+                    <div class="alert alert-<?php echo session_pull('alert') ?> mt-3">
+                        <?php echo session_pull('message') ?>
                     </div>
                 <?php endif ?>
                 <div class="panel panel-default">
