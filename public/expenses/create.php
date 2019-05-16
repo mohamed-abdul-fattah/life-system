@@ -32,7 +32,7 @@ include public_path('layouts/header.php');
                             <div class="form-group row">
                                 <label for="amount" class="col-sm-2 col-form-label">Amount</label>
                                 <div class="col-sm-10">
-                                    <input id="amount" name="amount" type="number" class="form-control" required>
+                                    <input id="amount" name="amount" type="text" class="form-control" required>
                                 </div>
                             </div>
                             <!-- Comment -->
