@@ -19,5 +19,5 @@ if (
     redirect('/');
 }
 
-$_SESSION['errors'] = ['You username or password is incorrect',];
+$_SESSION['errors'] = ['Your username or password is incorrect',];
 redirect('/login.php');
