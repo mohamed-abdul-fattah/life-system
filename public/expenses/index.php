@@ -63,8 +63,8 @@ include public_path('layouts/header.php');
                                 <tbody>
                                 <?php while ( $expense = mysqli_fetch_object($expenses) ): ?>
                                     <tr>
-                                        <td><?php echo $expense->amount ?></td>
-                                        <td><?php echo $expense->comment ?></td>
+                                        <td><?php echo htmlentities($expense->amount) ?></td>
+                                        <td><?php echo nl2br(htmlentities($expense->comment)) ?></td>
                                         <td><?php echo date('d-M-Y', strtotime($expense->created_at)) ?></td>
                                         <td>
                                             <div class="row">

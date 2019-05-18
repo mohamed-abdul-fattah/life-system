@@ -60,7 +60,7 @@ include public_path('layouts/header.php');
                                                   cols="30"
                                                   rows="5"
                                                   class="form-control"
-                                                  required="required"><?php echo nl2br(htmlentities($expense->comment)) ?></textarea>
+                                                  required="required"><?php echo htmlentities($expense->comment) ?></textarea>
                                 </div>
                             </div>
                             <!-- Date -->
