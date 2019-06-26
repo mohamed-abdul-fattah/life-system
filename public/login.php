@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../helpers.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 guest_check();
 ?>
 <!DOCTYPE html>

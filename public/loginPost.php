@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../helpers.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 guest_check();
 
 if ( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {

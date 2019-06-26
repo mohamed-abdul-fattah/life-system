@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../../helpers.php";
+require __DIR__ . '/../../vendor/autoload.php';
 require_auth();
 
 if ( $_POST['_method'] === 'DELETE' ) {
