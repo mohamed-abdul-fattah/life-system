@@ -183,6 +183,23 @@ if ( ! function_exists('getPaginationRange') ) {
     }
 }
 
+if ( ! function_exists('inject') ) {
+    /**
+     * Inject a partial template into a page with
+     * some defined variables.
+     *
+     * @param string $path
+     * @param array $args
+     * @return string
+     */
+    function inject($path, $args = [])
+    {
+        ob_start();
+        extract($args, EXTR_OVERWRITE);
+        @include public_path($path);
+        return ob_get_clean();
+    }
+}
 
 if ( ! function_exists('dd') ) {
     /**
