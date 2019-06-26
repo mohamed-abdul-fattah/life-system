@@ -163,6 +163,26 @@ if ( ! function_exists('getConfig') ) {
     }
 }
 
+if ( ! function_exists('getPaginationRange') ) {
+    /**
+     * Get pagination indexes to be displayed according to
+     * the current and last pages.
+     *
+     * @param int $current
+     * @param int $last
+     * @return array
+     */
+    function getPaginationRange($current, $last)
+    {
+        if ( $current <= 2 ) {
+            return range(1, 5);
+        } elseif ( $current < ($last - 1) ) {
+            return range($current - 2, $current + 2);
+        }
+        return range($last - 4, $last);
+    }
+}
+
 
 if ( ! function_exists('dd') ) {
     /**
