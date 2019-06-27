@@ -174,7 +174,9 @@ if ( ! function_exists('getPaginationRange') ) {
      */
     function getPaginationRange($current, $last)
     {
-        if ( $current <= 2 ) {
+        if ( $last < 5 ) {
+            return range(1, $last);
+        } elseif ( $current <= 2 ) {
             return range(1, 5);
         } elseif ( $current < ($last - 1) ) {
             return range($current - 2, $current + 2);
@@ -197,7 +199,7 @@ if ( ! function_exists('inject') ) {
         ob_start();
         extract($args, EXTR_OVERWRITE);
         @include public_path($path);
-        return ob_get_clean();
+        echo ob_get_clean();
     }
 }
 
@@ -209,6 +211,9 @@ if ( ! function_exists('dd') ) {
      */
     function dd($dump)
     {
-        die(var_dump($dump));
+        echo '<pre>';
+        var_dump($dump);
+        echo '</pre>';
+        die;
     }
 }

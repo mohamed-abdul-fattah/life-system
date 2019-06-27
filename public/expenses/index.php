@@ -15,10 +15,6 @@ $countQuery = "SELECT COUNT(*) as total FROM `transactions`";
 $expenses = mysqli_query($connection, $query);
 $count = mysqli_query($connection, $countQuery);
 $total = mysqli_fetch_object($count)->total;
-$totalPages = ceil($total / $perPage);
-
-$firstPage = 1;
-$lastPage = $totalPages;
 ?>
 
 <!DOCTYPE html>
@@ -93,72 +89,11 @@ include public_path('layouts/header.php');
                             </table>
 
                             <!-- Pagination -->
-                            <?php // TODO: Update pagination to be dynamic with the current page ?>
-                            <?php if ( $total ): ?>
-                                <nav aria-label="...">
-                                    <ul class="pagination">
-                                        <li class="page-item <?php if ( $currentPage == $firstPage )
-                                            echo 'disabled'; ?>">
-                                            <a class="page-link"
-                                               href="<?php echo url('expenses/?page=') . ($currentPage - 1) ?>">
-                                                Previous
-                                            </a>
-                                        </li>
-                                        <?php if ( $totalPages <= 10 ): ?>
-                                            <?php for ( $page = 1; $page <= $totalPages; $page++ ): ?>
-                                                <li class="page-item <?php if ( $page == $currentPage )
-                                                    echo 'active'; ?>">
-                                                    <?php if ( $page == $currentPage ): ?>
-                                                        <span class="page-link">
-                                                            <?php echo $page ?>
-                                                            <span class="sr-only">(current)</span>
-                                                        </span>
-                                                    <?php else: ?>
-                                                        <a class="page-link"
-                                                           href="<?php echo url('expenses/?page=') . $page ?>">
-                                                            <?php echo $page ?>
-                                                        </a>
-                                                    <?php endif ?>
-                                                </li>
-                                            <?php endfor ?>
-                                        <?php else: ?>
-                                            <?php for ( $page = 1; $page <= 5; $page++ ): ?>
-                                                <li class="page-item <?php if ( $page == $currentPage ) echo 'active'; ?>">
-                                                    <?php if ( $page == $currentPage ): ?>
-                                                        <span class="page-link">
-                                                        <?php echo $page ?>
-                                                        <span class="sr-only">(current)</span>
-                                                    </span>
-                                                    <?php else: ?>
-                                                        <a class="page-link"
-                                                           href="<?php echo url('expenses/?page=') . $page ?>">
-                                                            <?php echo $page ?>
-                                                        </a>
-                                                    <?php endif ?>
-                                                </li>
-                                            <?php endfor ?>
-                                            <li class="page-item"><a class="page-link">...</a></li>
-                                            <li class="page-item" <?php if ( $lastPage == $currentPage ) echo 'active'; ?>">
-                                            <?php if ( $lastPage == $currentPage ): ?>
-                                                <span class="page-link">
-                                                            <?php echo $lastPage ?>
-                                                        <span class="sr-only">(current)</span>
-                                                        </span>
-                                            <?php else: ?>
-                                                <a class="page-link"
-                                                   href="<?php echo url('expenses/?page=') . $lastPage ?>">
-                                                    <?php echo $lastPage ?>
-                                                </a>
-                                            <?php endif ?>
-                                            </li>
-                                        <?php endif ?>
-                                        <li class="page-item <?php if ( $currentPage == $lastPage ) echo 'disabled'; ?>">
-                                            <a class="page-link"
-                                               href="<?php echo url('expenses/?page=') . ($currentPage + 1) ?>">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            <?php endif ?>
+                            <?php inject('layouts/partials/pagination.php', [
+                                    'total' => $total,
+                                    'perPage' => $perPage,
+                                    'currentPage' => $currentPage
+                            ]) ?>
                         </div>
                     </div>
                 </div>
