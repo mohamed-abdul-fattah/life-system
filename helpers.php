@@ -163,6 +163,44 @@ if ( ! function_exists('getConfig') ) {
     }
 }
 
+if ( ! function_exists('paginationIndexes') ) {
+    /**
+     * Get pagination instructions to be followed by
+     * the client side.
+     *
+     * @param int $current
+     * @param int $last
+     * @return array
+     */
+    function paginationIndexes($current, $last): array
+    {
+        $range = getPaginationRange($current, $last);
+        $pagination = [
+            'prev'      => [
+                'URL'        => url('expenses/?page=') . ($current - 1),
+                'disability' => (bool) (1 == $current)
+            ],
+            'next'      => [
+                'URL'        => url('/expenses/?page=') . ($current + 1),
+                'disability' => (bool) ($current == $last)
+            ],
+            'indexes'   => $range,
+            'firstPage' => [
+                'URL'     => url('/expenses/'),
+                'display' => 1 != $range[0],
+                'active'  => (bool) (1 == $current)
+            ],
+            'lastPage'  => [
+                'URL'     => url('/expenses/?page=') . $last,
+                'display' => $range[count($range) - 1] < $last,
+                'active'  => (bool) ($last == $current)
+            ]
+        ];
+
+        return $pagination;
+    }
+}
+
 if ( ! function_exists('getPaginationRange') ) {
     /**
      * Get pagination indexes to be displayed according to
@@ -172,7 +210,7 @@ if ( ! function_exists('getPaginationRange') ) {
      * @param int $last
      * @return array
      */
-    function getPaginationRange($current, $last)
+    function getPaginationRange($current, $last): array
     {
         if ( $last < 5 ) {
             return range(1, $last);
