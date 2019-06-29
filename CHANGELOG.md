@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - App URL to the configurations file
 - Used composer autoload instead of including helpers file
-- Added inject helper method to inject template files into php webpages.
+- Added inject helper method to inject template files into php web pages.
+- Introduced the Unit testing with PHPUnit.
 
 ## [1.1.0] - 2019-05-11
 ### Added

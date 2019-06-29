@@ -5,6 +5,10 @@ Life system is built to watch your daily life and utilize your time and money wi
 # Configurations
 ## Environment Variables
 Copy and rename the configs.php.example to configs.php, then change the values to what values correspond to your environment.
+## Dependencies
+Run `composer install` to install the project dependencies.
+
+Run `./vendor/bin/phpunit` to run the unit tests.
 
 # Database Architecture
 ## Tables Structure
