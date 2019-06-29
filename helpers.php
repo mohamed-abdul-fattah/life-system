@@ -171,6 +171,7 @@ if ( ! function_exists('paginationIndexes') ) {
      * @param int $current
      * @param int $last
      * @return array
+     * @throws Exception
      */
     function paginationIndexes($current, $last): array
     {
