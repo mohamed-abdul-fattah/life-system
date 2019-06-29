@@ -1,24 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.2/phpunit.xsd"
-        backupGlobals="true"
+        backupGlobals="false"
         backupStaticAttributes="false"
-        bootstrap="tests/bootstrap.php"
-        cacheResult="false"
-        cacheTokens="false"
+        bootstrap="vendor/autoload.php"
         colors="true"
         convertErrorsToExceptions="true"
         convertNoticesToExceptions="true"
         convertWarningsToExceptions="true"
-        forceCoversAnnotation="false"
         processIsolation="false"
         stopOnError="false"
         stopOnFailure="false"
         stopOnIncomplete="false"
         stopOnSkipped="false"
         stopOnRisky="false"
-        timeoutForSmallTests="5"
-        timeoutForMediumTests="10"
-        timeoutForLargeTests="60"
         verbose="true">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
