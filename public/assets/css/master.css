@@ -27,11 +27,15 @@ body {
 }
 
 .panel-heading {
-    padding: 10px 0;
+    margin: 10px 0;
 }
 
 .panel-heading .title {
     display: inline;
+}
+
+.content-header {
+    position: relative;
 }
 
 .btn-warning {
@@ -46,6 +50,11 @@ body {
 
 .btn-action {
     margin: 0 3px;
+}
+
+.head-btn {
+    position: absolute;
+    right: 0;
 }
 
 footer {

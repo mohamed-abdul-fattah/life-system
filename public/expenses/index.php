@@ -38,11 +38,11 @@ include public_path('layouts/header.php');
                     </div>
                 <?php endif ?>
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading content-header">
                         <h2 class="title">Expenses</h2>
-                        <a href="<?php echo url('expenses/create.php') ?>" class="btn btn-primary btn-sm float-right">
+                        <a href="<?php echo url('expenses/create.php') ?>" class="btn btn-primary btn-sm head-btn">
                             <i class="fa fa-plus" aria-hidden="true"></i>
-                            Add Expense
+                            <span class="d-none d-sm-block">Add Expense</span>
                         </a>
                     </div>
                     <div class="panel-body">

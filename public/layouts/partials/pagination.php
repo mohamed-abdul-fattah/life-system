@@ -27,7 +27,7 @@ $lastPage = $totalPages;
     <nav aria-label="...">
         <ul class="pagination">
             <!--Previous-->
-            <li class="page-item <?php if ( $prev['disability'] ) echo 'disabled'; ?>">
+            <li class="page-item d-none d-sm-inline-block <?php if ( $prev['disability'] ) echo 'disabled'; ?>">
                 <a class="page-link"
                    href="<?php echo $prev['URL'] ?>">
                     Previous
@@ -80,7 +80,7 @@ $lastPage = $totalPages;
             <?php endif ?>
             <!--End last page-->
             <!--Next-->
-            <li class="page-item <?php if ( $next['disability'] ) echo 'disabled'; ?>">
+            <li class="page-item d-none d-sm-inline-block <?php if ( $next['disability'] ) echo 'disabled'; ?>">
                 <a class="page-link"
                    href="<?php echo $next['URL'] ?>">Next</a>
             </li>

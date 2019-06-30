@@ -18,11 +18,11 @@ include public_path('layouts/header.php');
         <div class="row">
             <div class="col-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading content-header">
                         <h2 class="title">Add Expense</h2>
-                        <a href="<?php echo url('expenses') ?>" class="btn btn-warning btn-sm float-right">
+                        <a href="<?php echo url('expenses') ?>" class="btn btn-warning btn-sm head-btn">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                            Back
+                            <span class="d-none d-sm-block">Back</span>
                         </a>
                         <hr>
                     </div>
