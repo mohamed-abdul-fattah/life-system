@@ -42,7 +42,7 @@ include public_path('layouts/header.php');
                         <h2 class="title">Expenses</h2>
                         <a href="<?php echo url('expenses/create.php') ?>" class="btn btn-primary btn-sm head-btn">
                             <i class="fa fa-plus" aria-hidden="true"></i>
-                            <span class="d-none d-sm-block">Add Expense</span>
+                            <span class="d-none d-sm-inline-block">Add Expense</span>
                         </a>
                     </div>
                     <div class="panel-body">

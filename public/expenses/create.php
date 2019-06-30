@@ -22,7 +22,7 @@ include public_path('layouts/header.php');
                         <h2 class="title">Add Expense</h2>
                         <a href="<?php echo url('expenses') ?>" class="btn btn-warning btn-sm head-btn">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                            <span class="d-none d-sm-block">Back</span>
+                            <span class="d-none d-sm-inline-block">Back</span>
                         </a>
                         <hr>
                     </div>
