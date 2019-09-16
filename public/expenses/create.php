@@ -1,6 +1,9 @@
 <?php
 require __DIR__ . '/../../vendor/autoload.php';
 require_auth();
+$connection = open_connection();
+$categories = mysqli_query($connection, "SELECT * FROM `categories`");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +36,18 @@ include public_path('layouts/header.php');
                                 <label for="amount" class="col-sm-2 col-form-label">Amount</label>
                                 <div class="col-sm-10">
                                     <input id="amount" name="amount" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <!-- Category -->
+                            <div class="form-group row">
+                                <label for="category-id" class="col-sm-2 col-form-label">Category</label>
+                                <div class="col-sm-10">
+                                    <select name="category_id" id="category-id" class="form-control">
+                                        <option value="">Other</option>
+                                        <?php while ( $category = mysqli_fetch_object($categories) ): ?>
+                                        <option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
+                                        <?php endwhile ?>
+                                    </select>
                                 </div>
                             </div>
                             <!-- Comment -->

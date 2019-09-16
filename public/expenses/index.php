@@ -7,7 +7,8 @@ $currentPage = $_GET['page'] ?? 1;
 $offset = ($currentPage - 1) * $perPage;
 
 $connection = open_connection();
-$query = "SELECT * FROM `transactions`
+$query = "SELECT `transactions`.*, `c`.`name` as category FROM `transactions`
+            LEFT JOIN categories c on transactions.category_id = c.id
             ORDER By `transactions`.`created_at` DESC
             LIMIT {$perPage} 
             OFFSET {$offset}";
@@ -51,6 +52,7 @@ include public_path('layouts/header.php');
                                 <thead>
                                 <tr>
                                     <th>Amount</th>
+                                    <th>Category</th>
                                     <th>Comment</th>
                                     <th>Date</th>
                                     <th></th>
@@ -60,6 +62,7 @@ include public_path('layouts/header.php');
                                 <?php while ( $expense = mysqli_fetch_object($expenses) ): ?>
                                     <tr>
                                         <td><?php echo htmlentities($expense->amount) ?></td>
+                                        <td><?php echo ($expense->category) ? htmlentities($expense->category) : 'Other' ?></td>
                                         <td><?php echo nl2br(htmlentities($expense->comment)) ?></td>
                                         <td><?php echo date('d-M-Y', strtotime($expense->created_at)) ?></td>
                                         <td>
