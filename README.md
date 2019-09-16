@@ -1,4 +1,4 @@
-![release 1.2.0](https://img.shields.io/badge/release-1.2.0-blue.svg)
+![release 1.3.0](https://img.shields.io/badge/release-1.2.0-blue.svg)
 # Overview
 Life system is built to watch your daily life and utilize your time and money wisely.
 
@@ -15,23 +15,18 @@ Run `./vendor/bin/phpunit` to run the unit tests.
 #### transactions Table
 | Field      | Type                | Null | Key | Default             | Extra                         |
 |------------|---------------------|------|-----|---------------------|-------------------------------|
-| id         | bigint(20) unsigned | NO   | PRI | NULL                | auto_increment                |
-| amount     | decimal(20,2)       | NO   |     | NULL                |                               |
-| comment    | varchar(255)        | NO   |     | NULL                |                               |
-| created_at | timestamp           | YES  |     | current_timestamp() |                               |
-| updated_at | timestamp           | YES  |     | NULL                | on update current_timestamp() |
+| id         | bigint(20) unsigned | NO   | PRI | None                | AUTO_INCREMENT                |
+| category_id| int(11)    unsigned | YES  |     | NULL                |                               |
+| amount     | decimal(20,2)       | NO   |     | None                |                               |
+| comment    | varchar(255)        | NO   |     | None                |                               |
+| created_at | timestamp           | YES  |     | CURRENT_TIMESTAMP	  |                               |
+| updated_at | timestamp           | YES  |     | NULL                | ON UPDATE CURRENT_TIMESTAMP   |
 
-#### tags Table
+#### categories Table
 | Field      | Type                | Null | Key | Default             | Extra                         |
 |------------|---------------------|------|-----|---------------------|-------------------------------|
-| id         | int(11) unsigned    | NO   | PRI | NULL                | auto_increment                |
-| name       | varchar(100)        | NO   |     | NULL                |                               |
-| created_at | timestamp           | YES  |     | current_timestamp() |                               |
-| updated_at | timestamp           | YES  |     | NULL                | on update current_timestamp() |
-
-#### tag_transaction Table
-| Field          | Type                | Null | Key | Default             | Extra |
-|----------------|---------------------|------|-----|---------------------|-------|
-| transaction_id | int(10) unsigned    | NO   | PRI | NULL                |       |
-| tag_id         | int(10) unsigned    | NO   | PRI | NULL                |       |
-| created_at     | timestamp           | YES  |     | current_timestamp() |       |
+| id         | int(10) unsigned    | NO   | PRI | NULL                | AUTO_INCREMENT                |
+| name       | varchar(100)        | NO   |     | None                |                               |
+| created_at | timestamp           | YES  |     | CURRENT_TIMESTAMP   |                               |
+| updated_at | timestamp           | YES  |     | NULL                | ON UPDATE CURRENT_TIMESTAMP   |
+| deleted_at | timestamp           | YES  |     | NULL                |                               |
