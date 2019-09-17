@@ -7,7 +7,7 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
     $connection = open_connection();
 
     $amount = mysqli_real_escape_string($connection, trim($_POST['amount']));
-    $category_id = ($_POST['category_id'])
+    $categoryId = ($_POST['category_id'])
         ? mysqli_real_escape_string($connection, trim($_POST['category_id']))
         : 'NULL';
     $comment = mysqli_real_escape_string($connection, trim($_POST['comment']));
@@ -16,7 +16,7 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
         : date('Y-m-d');
 
     $query = "INSERT INTO `transactions` (`category_id`, `amount`, `comment`, `created_at`)
-                VALUES ({$category_id}, {$amount}, '{$comment}', '{$date}')";
+                VALUES ({$categoryId}, {$amount}, '{$comment}', '{$date}')";
 
     $result = mysqli_query($connection, $query);
 

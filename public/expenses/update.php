@@ -7,6 +7,9 @@ $id = $_GET['id'];
 if ( $_POST['_method'] === 'PUT' && ! empty($id) ) {
     $connection = open_connection();
 
+    $categoryId = ($_POST['category_id'])
+        ? mysqli_real_escape_string($connection, trim($_POST['category_id']))
+        : 'NULL';
     $amount = mysqli_real_escape_string($connection, trim($_POST['amount']));
     $comment = mysqli_real_escape_string($connection, trim($_POST['comment']));
     $date = mysqli_real_escape_string($connection, $_POST['created_at']);
@@ -14,6 +17,7 @@ if ( $_POST['_method'] === 'PUT' && ! empty($id) ) {
     $updatedAt = date('Y-m-d H:i:s');
     $query = "UPDATE `transactions`
               SET `transactions`.`amount`={$amount},
+                  `transactions`.`category_id` = {$categoryId},
                   `transactions`.`comment`='{$comment}',
                   `transactions`.`created_at`='{$date}',
                   `transactions`.`updated_at`='{$updatedAt}'

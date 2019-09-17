@@ -11,6 +11,7 @@ if ( empty($id) ) {
 $connection = open_connection();
 $query = "SELECT * FROM `transactions` WHERE `transactions`.`id`={$id}";
 $expense = mysqli_fetch_object(mysqli_query($connection, $query));
+$categories = mysqli_query($connection, "SELECT * FROM `categories`");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +50,21 @@ include public_path('layouts/header.php');
                                            class="form-control"
                                            required="required"
                                            value="<?php echo htmlentities($expense->amount) ?>">
+                                </div>
+                            </div>
+                            <!-- Category -->
+                            <div class="form-group row">
+                                <label for="category-id" class="col-sm-2 col-form-label">Category</label>
+                                <div class="col-sm-10">
+                                    <select name="category_id" id="category-id" class="form-control">
+                                        <option value="">Other</option>
+                                        <?php while ( $category = mysqli_fetch_object($categories) ): ?>
+                                            <option value="<?php echo $category->id ?>"
+                                                <?php if ( $expense->category_id == $category->id ) echo 'selected' ?>>
+                                                <?php echo $category->name ?>
+                                            </option>
+                                        <?php endwhile ?>
+                                    </select>
                                 </div>
                             </div>
                             <!-- Comment -->

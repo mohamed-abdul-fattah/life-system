@@ -48,7 +48,7 @@ include public_path('layouts/header.php');
                     </div>
                     <div class="panel-body">
                         <div class="table">
-                            <table class="table table-striped table-hover">
+                            <table class="table table-striped table-hover table-responsive-sm">
                                 <thead>
                                 <tr>
                                     <th>Amount</th>
