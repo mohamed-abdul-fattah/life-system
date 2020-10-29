@@ -6,6 +6,6 @@
           rel="stylesheet"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo url('assets/css/master.css') ?>">
+    <link rel="stylesheet" href="<?php echo url('assets/css/main.css') ?>">
     <title><?php echo isset($title) ? $title : 'Home'; ?> | <?php echo getConfig('APP_NAME', 'Life System') ?></title>
 </head>
