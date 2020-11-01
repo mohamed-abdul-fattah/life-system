@@ -1,9 +1,15 @@
-<div class="header">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<div class="header"  >
+    <nav class="navbar navbar-expand-sm">
         <a class="navbar-brand" href="<?php echo url('/') ?>">
             <h2><?php echo getConfig('APP_NAME', 'Life System') ?></h2>
         </a>
-        <div id="navbarNav">
+
+<!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+<!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <?php $activeItem = $activeItem ?? 'home'; ?>
                 <li class="nav-item <?php if ( $activeItem === 'home' ) echo "active"; ?>">

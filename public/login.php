@@ -6,13 +6,12 @@ guest_check();
 <html lang="en">
 <?php $title = 'Login' ?>
 <?php include public_path('layouts/header.php'); ?>
-<body>
+<body id="login">
 <div id="app">
+<!-- navbar -->
     <?php include public_path("layouts/navbar.php") ?>
-    <div class="container">
-        <div class="card">
-            <div class="card-header">Please, Login...</div>
-            <div class="card-body">
+    <div class="card-container">
+<!-- error message -->
                 <?php if ( isset($_SESSION['errors']) ): ?>
                     <div class="alert alert-danger">
                         <ul>
@@ -25,29 +24,40 @@ guest_check();
                 unset($_SESSION['errors']);
                 endif;
                 ?>
-                <form action="<?php echo url('/loginPost.php') ?>" method="POST">
-                    <div class="form-group row">
-                        <label for="email" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" id="email" name="email" class="form-control" autofocus>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="password" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" id="password" name="password" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <input type="submit" class="btn btn-primary" value="Login"/>
-                        </div>
-                    </div>
-                </form>
-            </div>
+        <!-- <div class='both'> -->
+<!-- sign up  -->
+        <!-- <div class="signup">
+        <div class="signup-connect">
+            
+            <a href="#" class="social-btn btn-social btn-facebook"><i class="fa fa-facebook"></i> Sign in with Facebook</a>
+            <a href="#" class="social-btn btn-social btn-twitter"><i class="fa fa-twitter"></i> Sign in with Twitter</a>
+            <a href="#" class="social-btn btn-social btn-google"><i class="fa fa-google"></i> Sign in with Google</a>
+            <a href="#" class="social-btn btn-social btn-linkedin"><i class="fa fa-linkedin"></i> Sign in with Linkedin</a>
         </div>
+        </div> -->
+<!-- sign in  -->
+        <form class="sign-in-form" action="<?php echo url('/loginPost.php') ?>" method="POST">        
+            <div class="segment">
+                <h1 style="color:#bfbfbf">Sign in</h1>
+            </div>
+            
+            <label for='email'>
+                <input type="email" id="email" name="email"  placeholder="Email Address"/>
+            </label>
+            <label for='password' >
+                <input type="password" id="password" name="password" placeholder="Password"/>
+            </label>
+            <a href="#"><button class="red"><i class="icon ion-md-lock"></i>Log in</button></a>
+            <!-- <div class="small-social">
+                <a href="#"><button> <i class="fa fa-facebook"> </button></i></a>
+                <a href="#"><button><i class="fa fa-twitter"></button></i></a>
+                <a href="#"><button><i class="fa fa-google"></button></i></a>
+                <a href="#"><button><i class="fa fa-linkedin"></button></i></a>
+            </div> -->
+        </form>
     </div>
 </div>
 <?php include public_path("layouts/footer.php") ?>
+
 </body>
 </html>

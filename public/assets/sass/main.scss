@@ -2,6 +2,8 @@
 /*@import url('https://fonts.googleapis.com/css?family=Cairo|Poiret+One');*/
 /* Fontawesome */
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import "./sass-components/login.scss";
+
 
 * {
     font-family: 'monospace', sans-serif;
@@ -12,7 +14,13 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
+
+}
+.navbar{
     
+    background-color:#ebecf0;
+    z-index: 1000;
+
 }
 
 #app {

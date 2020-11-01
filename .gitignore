@@ -3,4 +3,4 @@
 /vendor/
 /.phpunit.result.cache
 /node_modules/
-/public/assets/*.css
+/public/assets/css/*.css
