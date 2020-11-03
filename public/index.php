@@ -16,7 +16,7 @@ $monthTotal = mysqli_fetch_object($sumQuery)->total;
 <div id="app">
     <?php include public_path("layouts/navbar.php") ?>
     <div class="container">
-        <div class="row">
+        <div class="row home-month-summary">
             <p class="month-summary">Money spent this month</p>
             <p class="month-summary
             <?php

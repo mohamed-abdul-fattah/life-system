@@ -2,15 +2,24 @@
 /*@import url('https://fonts.googleapis.com/css?family=Cairo|Poiret+One');*/
 /* Fontawesome */
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import "./sass-components/login.scss";
+@import "./sass-components/home.scss";
+
 
 * {
     font-family: 'monospace', sans-serif;
 }
 
 body {
+    background-color: #ebecf0 ;
     width: 100%;
     padding: 0;
     margin: 0;
+
+}
+.navbar{
+    background-color:$color-bg;
+    z-index: 1000;
 }
 
 #app {
@@ -19,11 +28,6 @@ body {
 
 .container {
     padding: 0 3em;
-}
-
-.header {
-    background-color: #24292e;
-    color: #fff;
 }
 
 .panel-heading {
@@ -59,7 +63,7 @@ body {
 
 footer {
     min-height: 8vh;
-    background-color: #24292e;
+    background-color:$color-black;
     color: #fff;
     text-align: center;
 }

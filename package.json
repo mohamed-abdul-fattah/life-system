@@ -1,0 +1,16 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss:watch": "node-sass --watch public/assets/sass/main.scss -o public/assets/css",
+    "scss": "node-sass public/assets/sass/main.scss -o public/assets/css"
+
+  },
+  "author": "Elamir<engineeralamiir@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
+}
