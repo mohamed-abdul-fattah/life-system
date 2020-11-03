@@ -17,10 +17,8 @@ body {
 
 }
 .navbar{
-    
-    background-color:#ebecf0;
+    background-color:$color-bg;
     z-index: 1000;
-
 }
 
 #app {
@@ -29,11 +27,6 @@ body {
 
 .container {
     padding: 0 3em;
-}
-
-.header {
-    background-color: #24292e;
-    color: #fff;
 }
 
 .panel-heading {
@@ -69,7 +62,7 @@ body {
 
 footer {
     min-height: 8vh;
-    background-color: #24292e;
+    background-color:$color-black;
     color: #fff;
     text-align: center;
 }
