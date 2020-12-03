@@ -1,0 +1,36 @@
+.btn {
+    width: 70px;
+    height: 34px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+    border-radius: 7px;
+    transition: all .3s;
+
+
+    &-white {
+        background-color: $white;
+        
+    }
+
+    &:hover {
+        box-shadow: $box-shadow-hover ;
+        transform: translateY(-3px);
+    }
+
+    &:active {
+        box-shadow: $box-shadow-active ;
+        transform: translateY(1px);
+    }
+
+    &--add {
+        width: 159px;
+        border: 3px solid;
+        margin-left: 1rem;
+        @include respond(small-phone){
+           margin-left: 0 ;
+        }
+
+    }
+
+}

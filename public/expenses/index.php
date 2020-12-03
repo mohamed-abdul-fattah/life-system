@@ -25,86 +25,90 @@ $title = 'Expenses';
 include public_path('layouts/header.php');
 ?>
 <body>
-<div id="app">
-    <?php
-    $activeItem = 'expenses';
-    include public_path('layouts/navbar.php')
-    ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <?php if ( session_has('message') ): ?>
-                    <div class="alert alert-<?php echo session_pull('alert') ?> mt-3">
-                        <?php echo session_pull('message') ?>
-                    </div>
-                <?php endif ?>
-                <div class="panel panel-default">
-                    <div class="panel-heading content-header">
-                        <h2 class="title">Expenses</h2>
-                        <a href="<?php echo url('expenses/create.php') ?>" class="btn btn-primary btn-sm head-btn">
+    <div class="expenses">
+        <section>
+            <?php
+            $activeItem = 'expenses';
+            include public_path('layouts/navbar.php')
+            ?>            
+        </section>
+
+        <section>
+            <?php if ( session_has('message') ): ?>
+                        <div class="alert alert-<?php echo session_pull('alert') ?> mt-3">
+                            <?php echo session_pull('message') ?>
+                        </div>
+            <?php endif ?>
+        </section>
+
+        <section>
+                    <div class="expenses__add ">
+                        <h2>Expenses</h2>
+                        <a href="<?php echo url('expenses/create.php') ?>" class="btn btn--add">
                             <i class="fa fa-plus" aria-hidden="true"></i>
-                            <span class="d-none d-sm-inline-block">Add Expense</span>
+                            <span>Add Expense</span>
                         </a>
                     </div>
-                    <div class="panel-body">
-                        <div class="table">
-                            <table class="table table-striped table-hover table-responsive-sm">
-                                <thead>
-                                <tr>
-                                    <th>Amount</th>
-                                    <th>Category</th>
-                                    <th>Comment</th>
-                                    <th>Date</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php while ( $expense = mysqli_fetch_object($expenses) ): ?>
-                                    <tr>
-                                        <td><?php echo htmlentities($expense->amount) ?></td>
-                                        <td><?php echo ($expense->category) ? htmlentities($expense->category) : 'Other' ?></td>
-                                        <td><?php echo nl2br(htmlentities($expense->comment)) ?></td>
-                                        <td><?php echo date('d-M-Y', strtotime($expense->created_at)) ?></td>
-                                        <td>
-                                            <div class="row">
-                                                <div class="btn-action">
-                                                    <a href="<?php echo url('expenses/edit.php?id=') . $expense->id; ?>" class="btn btn-sm btn-warning">
-                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="btn-action">
-                                                    <form action="<?php echo url('expenses/delete.php') ?>" method="POST">
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <input type="hidden" name="expenseId"
-                                                               value="<?php echo $expense->id ?>">
-                                                        <button class="btn btn-sm btn-danger delete-expense"
-                                                                title="Delete"
-                                                                type="submit">
-                                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <?php endwhile ?>
-                                </tbody>
-                            </table>
+        </section>
+        <section class="expenses__table">
+                    <table class="table table-striped table-hover ">
+                        <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Comment</th>
+                            <th >Date</th>
+                            <!-- <th></th> -->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php while ( $expense = mysqli_fetch_object($expenses) ): ?>
+                            <tr>
+                                <td><?php echo htmlentities($expense->amount) ?></td>
+                                <td><?php echo ($expense->category) ? htmlentities($expense->category) : 'Other' ?></td>
+                                <td><?php echo nl2br(htmlentities($expense->comment)) ?></td>
+                                <td><?php echo date('d-M-Y', strtotime($expense->created_at)) ?></td>
+                                <td>
+                                    <div class="row">
+                                        <div class="btn-action">
+                                            <a href="<?php echo url('expenses/edit.php?id=') . $expense->id; ?>" class="btn btn-sm btn-warning">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                        <div class="btn-action">
+                                            <form action="<?php echo url('expenses/delete.php') ?>" method="POST">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="expenseId"
+                                                        value="<?php echo $expense->id ?>">
+                                                <button class="btn btn-sm btn-danger delete-expense"
+                                                        title="Delete"
+                                                        type="submit">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endwhile ?>
+                        </tbody>
+                    </table>                    
+        </section>
 
-                            <!-- Pagination -->
-                            <?php inject('layouts/partials/pagination.php', [
-                                    'total' => $total,
-                                    'perPage' => $perPage,
-                                    'currentPage' => $currentPage
-                            ]) ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <section class="pagnition">
+            <!-- Pagination -->
+            <?php inject('layouts/partials/pagination.php', [
+                    'total' => $total,
+                    'perPage' => $perPage,
+                    'currentPage' => $currentPage
+            ]) ?>
+        </section>
+
+        <section class='footer'>
+            <?php include public_path("layouts/footer.php") ?>
+        </section>
     </div>
-</div>
-<?php include public_path("layouts/footer.php") ?>
+
 <script>
     let forms = document.querySelectorAll('form');
 

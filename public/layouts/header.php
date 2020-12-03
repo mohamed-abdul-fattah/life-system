@@ -6,6 +6,8 @@
           rel="stylesheet"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo url('assets/css/main.css') ?>">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="<?php echo url('assets/css/index.css') ?>">
     <title><?php echo isset($title) ? $title : 'Home'; ?> | <?php echo getConfig('APP_NAME', 'Life System') ?></title>
 </head>

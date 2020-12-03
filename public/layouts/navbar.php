@@ -1,5 +1,5 @@
-<div class="header"  >
-    <nav class="navbar navbar-expand-sm">
+<div class="header">
+    <nav class="header__navbar navbar navbar-expand-sm">
         <a class="navbar-brand" href="<?php echo url('/') ?>">
             <h2><?php echo getConfig('APP_NAME', 'Life System') ?></h2>
         </a>
