@@ -1,16 +1,14 @@
 .btn {
-    width: 70px;
-    height: 34px;
+
     font-size: 1.5rem;
     font-weight: bold;
-    
     border-radius: 7px;
     transition: all .3s;
 
 
     &-white {
         background-color: $white;
-        
+
     }
 
     &:hover {

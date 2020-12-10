@@ -1,8 +1,7 @@
 .expenses {
     display: grid;
-    grid-template-rows: 5rem 2rem 7rem 64vh 3.8rem 5rem;
-
-    &__add {
+    grid-template-rows: 5rem repeat(3, min-content) 4rem;
+        &__add {
         display: flex;
         align-items: center;
         padding: 0 3rem;
@@ -13,27 +12,10 @@
         }
     }
 
-    &__table {
-        &--date {
-            display: flex;
-            justify-content: space-between;
+}
 
-        &--row {
-
-            // &-1 {
-            // }
-
-            &-2 {
-                background-color: red;
-                transform: translateY(-31px);
-                z-index: -1;
-                top: 0;
-                left:0; 
-            }
-        }
-
-        }
-
-
-    }
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

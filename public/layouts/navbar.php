@@ -5,10 +5,14 @@
         </a>
 
 <!-- Toggler/collapsibe Button -->
+<div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+</div>
 <!-- Navbar links -->
+<div>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <?php $activeItem = $activeItem ?? 'home'; ?>
@@ -20,5 +24,7 @@
                 </li>
             </ul>
         </div>
+
+</div>
     </nav>
 </div>

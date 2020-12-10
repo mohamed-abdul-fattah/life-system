@@ -50,7 +50,86 @@ include public_path('layouts/header.php');
                         </a>
                     </div>
         </section>
+
         <section class="expenses__table">
+                <div class='expenses__table--head'>
+                    <div>Amount</div>
+                    <div>Category</div>
+                    <div>Date</div>
+                    <div class="comment-display-none">Comment</div>
+            
+                </div>
+
+                <?php while ( $expense = mysqli_fetch_object($expenses) ): ?>
+                    <div class="expenses__table--row">
+                       <div class="expenses__table--row-amount"> <?php echo htmlentities($expense->amount) ?> <i class="fa fa-money" aria-hidden="true"></i> </div>
+                       <div class="expenses__table--row-category"> <?php echo ($expense->category) ? htmlentities($expense->category) : 'Other' ?> </div>
+                       <div class="expenses__table--row-date"> <?php echo date('d-M-Y', strtotime($expense->created_at)) ?></div>
+                       <div class="comment-none expenses__table--row-comment"> <?php echo nl2br(htmlentities($expense->comment)) ?> </div>
+                       <div class="btn-none expenses__table--row-btn">
+                                    <div>
+                                        <a class="btn  btn-edit" href="<?php echo url('expenses/edit.php?id=') . $expense->id; ?>">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <form action="<?php echo url('expenses/delete.php') ?>" method="POST">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="expenseId"
+                                                    value="<?php echo $expense->id ?>">
+                                            <button class="btn btn-delete delete-expense"
+                                                    title="Delete"
+                                                    type="submit">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                         </div>
+
+                    
+
+                       <label class="container-none container">
+                            <input type="checkbox" >
+                            <div class="container__arrow-box"><span class="arrow">&#9660;</span></div>
+                            <div class="note-box">
+                                <div class="expenses__table--row-comment"> <?php echo nl2br(htmlentities($expense->comment)) ?> </div>
+                                <div class="expenses__table--row-btn">
+                                            <div>
+                                                <a class="btn  btn-edit" href="<?php echo url('expenses/edit.php?id=') . $expense->id; ?>">
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <form action="<?php echo url('expenses/delete.php') ?>" method="POST">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="expenseId"
+                                                            value="<?php echo $expense->id ?>">
+                                                    <button class="btn btn-delete delete-expense"
+                                                            title="Delete"
+                                                            type="submit">
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                    
+                            </div>
+                        </label>
+
+                    </div>
+                <?php endwhile ?>
+                <section class="pagnition">
+                    <!-- Pagination -->
+                    <?php inject('layouts/partials/pagination.php', [
+                            'total' => $total,
+                            'perPage' => $perPage,
+                            'currentPage' => $currentPage
+                    ]) ?>
+                </section>
+
+        </section>
+        <!-- <section class="expenses__table">
                     <table class="table table-striped table-hover ">
                         <thead>
                         <tr>
@@ -58,7 +137,6 @@ include public_path('layouts/header.php');
                             <th>Category</th>
                             <th>Comment</th>
                             <th >Date</th>
-                            <!-- <th></th> -->
                         </tr>
                         </thead>
                         <tbody>
@@ -93,16 +171,9 @@ include public_path('layouts/header.php');
                         <?php endwhile ?>
                         </tbody>
                     </table>                    
-        </section>
+        </section> -->
 
-        <section class="pagnition">
-            <!-- Pagination -->
-            <?php inject('layouts/partials/pagination.php', [
-                    'total' => $total,
-                    'perPage' => $perPage,
-                    'currentPage' => $currentPage
-            ]) ?>
-        </section>
+
 
         <section class='footer'>
             <?php include public_path("layouts/footer.php") ?>
@@ -122,6 +193,7 @@ include public_path('layouts/header.php');
             }
         }, true);
     });
+
 </script>
 </body>
 </html>
