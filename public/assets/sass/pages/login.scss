@@ -1,4 +1,4 @@
 .login {
   display: grid;
-  grid-template-rows:5rem 2rem 82vh 5rem;
+  grid-template-rows:repeat(2,min-content) 82vh 4rem;
 }

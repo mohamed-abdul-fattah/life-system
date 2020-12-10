@@ -1,18 +1,14 @@
 <div class="header">
-    <nav class="header__navbar navbar navbar-expand-sm">
+    <nav class="navigation navbar navbar-expand-sm">
         <a class="navbar-brand" href="<?php echo url('/') ?>">
             <h2><?php echo getConfig('APP_NAME', 'Life System') ?></h2>
         </a>
 
 <!-- Toggler/collapsibe Button -->
-<div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="btn btn-blue navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-</div>
 <!-- Navbar links -->
-<div>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <?php $activeItem = $activeItem ?? 'home'; ?>
@@ -24,7 +20,5 @@
                 </li>
             </ul>
         </div>
-
-</div>
     </nav>
 </div>

@@ -10,6 +10,9 @@
         background-color: $white;
 
     }
+    &-blue {
+        background-color: $soft-blue ;
+    }
 
     &:hover {
         box-shadow: $box-shadow-hover ;
