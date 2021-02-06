@@ -2,68 +2,29 @@
 /*@import url('https://fonts.googleapis.com/css?family=Cairo|Poiret+One');*/
 /* Fontawesome */
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-@import "./sass-components/login.scss";
-@import "./sass-components/home.scss";
 
 
-* {
-    font-family: 'monospace', sans-serif;
-}
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
 
-body {
-    background-color: #ebecf0 ;
-    width: 100%;
-    padding: 0;
-    margin: 0;
 
-}
-.navbar{
-    background-color:$color-bg;
-    z-index: 1000;
-}
+@import "./base/base";
+@import "./base/typography";
 
-#app {
-    min-height: 92vh;
-}
+@import "./components/form";
+@import "./components/header";
+@import "./components/buttons";
+@import "./components/table";
+@import "./components/pagnition";
+@import "./components/navigation";
 
-.container {
-    padding: 0 3em;
-}
 
-.panel-heading {
-    margin: 10px 0;
-}
+@import "./layout/footer";
+@import "./layout/header";
+@import "./pages/expenses";
 
-.panel-heading .title {
-    display: inline;
-}
+@import "./pages/home.scss"; 
+@import "./pages/login.scss";
 
-.content-header {
-    position: relative;
-}
 
-.btn-warning {
-    color: #fff;
-}
 
-.month-summary {
-    font-size: 4rem;
-    width: 100%;
-    text-align: center;
-}
-
-.btn-action {
-    margin: 0 3px;
-}
-
-.head-btn {
-    position: absolute;
-    right: 0;
-}
-
-footer {
-    min-height: 8vh;
-    background-color:$color-black;
-    color: #fff;
-    text-align: center;
-}

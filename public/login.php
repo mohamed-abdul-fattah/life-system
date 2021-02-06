@@ -6,41 +6,53 @@ guest_check();
 <html lang="en">
 <?php $title = 'Login' ?>
 <?php include public_path('layouts/header.php'); ?>
-<body id="login">
-<div id="app">
+<body>
+<div class="login">
+
 <!-- navbar -->
-    <?php include public_path("layouts/navbar.php") ?>
-    <div class="card-container">
+    <section>
+        <?php include public_path("layouts/navbar.php") ?>
+    </section>
+
 <!-- error message -->
-                <?php if ( isset($_SESSION['errors']) ): ?>
-                    <div class="alert alert-danger">
-                        <ul>
-                            <?php foreach ( $_SESSION['errors'] as $error ): ?>
-                                <li><?php echo $error ?></li>
-                            <?php endforeach ?>
-                        </ul>
-                    </div>
-                <?php
-                unset($_SESSION['errors']);
-                endif;
-                ?>
-<!-- sign in  -->
-        <form class="sign-in-form" action="<?php echo url('/loginPost.php') ?>" method="POST">        
-            <div class="segment">
-                <h1 style="color:#bfbfbf">Sign in</h1>
+    <section>
+        <?php if ( isset($_SESSION['errors']) ): ?>
+            <div class="alert alert-danger">
+                <ul>
+                    <?php foreach ( $_SESSION['errors'] as $error ): ?>
+                        <li><?php echo $error ?></li>
+                    <?php endforeach ?>
+                </ul>
             </div>
+        <?php
+        unset($_SESSION['errors']);
+        endif;
+        ?>   
+    </section>
+
+<!-- sign in  -->
+    <section class="form">
+        <form class="form__signin" action="<?php echo url('/loginPost.php') ?>" method="POST">        
+            <h1 class="form__signin--header header-1">
+                sign in 
+            </h1>
             
-            <label for='email'>
-                <input type="email" id="email" name="email"  placeholder="Email Address"/>
+            <label for='email' class="form__signin--eamil" >
+                <input type="email" id="email" name="email" class="form__input" placeholder="Email Address"/>
             </label>
-            <label for='password' >
-                <input type="password" id="password" name="password" placeholder="Password"/>
+            <label for='password' class="form__signin--password">
+                <input type="password" id="password" name="password" class="form__input" placeholder="Password"/>
             </label>
-            <a href="#"><button class="red"><i class="icon ion-md-lock"></i>Log in</button></a>
+            <a href="#"><button class="btn btn-white form__signin--btn"><i class="icon icon-md-lock"></i>Log in</button></a>
         </form>
-    </div>
+    </section>
+        
+<!-- footer -->
+    <section class="footer">
+        <?php include public_path("layouts/footer.php") ?>
+    </section>
+
 </div>
-<?php include public_path("layouts/footer.php") ?>
 
 </body>
 </html>
