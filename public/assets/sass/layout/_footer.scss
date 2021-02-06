@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: white;
+    background-color: $black;
+    color: $white;
     font-size: 1.2rem;
+    z-index: 1000;
 }

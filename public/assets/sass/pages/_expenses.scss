@@ -1,39 +1,26 @@
 .expenses {
     display: grid;
-    grid-template-rows: 5rem 2rem 7rem 64vh 3.8rem 5rem;
+    grid-template-rows:  repeat(4, min-content) 4rem;
 
     &__add {
-        display: flex;
-        align-items: center;
-        padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem 3rem;
 
         @include respond(small-phone){
-            flex-direction: column;
-            align-items: start;
-        }
-    }
-
-    &__table {
-        &--date {
-            display: flex;
-            justify-content: space-between;
-
-        &--row {
-
-            // &-1 {
-            // }
-
-            &-2 {
-                background-color: red;
-                transform: translateY(-31px);
-                z-index: -1;
-                top: 0;
-                left:0; 
+            .btn--add{
+                width: 25px;
+                height: 30px;
+                overflow: hidden;
+                padding: 3px 4px;
+                margin: 0px 4px;
             }
         }
-
-        }
-
-
     }
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
