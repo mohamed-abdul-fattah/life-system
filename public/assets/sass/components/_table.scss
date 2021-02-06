@@ -1,10 +1,8 @@
 .expenses {
     &__table {
         margin:0 20px ;
-        @include respond(phone){
-        // justify-self: center;
-        margin:0 ;
-        }
+
+        @include respond(phone){ margin:0}
 
         &--head {
             display: grid;
@@ -13,21 +11,18 @@
             font-size: 1.6rem;
             justify-items: center;
             align-items: center;
-            @include respond(small-phone){
-                font-size: 1.4rem;
-            }
+
+            @include respond(small-phone){ font-size: 1.4rem}
+
             @include respond(phone) {
              grid-template-columns: repeat(3, minmax(4rem , 11rem) ) 3rem ;
              justify-content: space-between;
-             .comment-display-none {
-                 display: none;
-             }
-               
+             .comment-display-none { display: none}
             }
-            & > * {
-                padding: 3px;
-            }
+
+            & > * { padding: 3px }
         }
+
         &--row {
             display: grid;
             grid-template-columns: repeat(3, minmax(4rem, 11rem)) minmax(min-content,1fr) 8rem;
@@ -37,32 +32,28 @@
             background-color: $black-table-row;
             margin-bottom: .3rem;
             padding: .2rem;
-            // .container input:checked ~ & {
-            //     grid-template-rows: 3rem  min-content;             
-            // }
 
             @include respond(phone) {
                 grid-template-columns: repeat(3, minmax(4rem, 11rem)) 3rem;
                 grid-template-rows: 3rem  min-content;     
                 justify-content: space-between;
                 transition: all .4s ;
-               }
+            }
    
             & > * {
                 align-self: center;
                 justify-self: center;
                 font-size: 1.4rem;
                 color: $white;
-                @include respond(small-phone){
-                    font-size: 1.1rem;                   
-                }
+                @include respond(small-phone){ font-size: 1.1rem }
             }
 
             &-amount {
                 color: $green-money;
             }
 
-            .container-none {display: none;}
+            .container-none {display: none }
+
             @include respond(phone) {
             .container-none {display: block;}
            
@@ -112,15 +103,13 @@
                         & .arrow {
                             color: $black;
                         }
-
-                        }
                     }
+                }
 
                 .note-box {
                     display: none;
                     transition: all .8s;
                     height: 0;
-    
                 }
 
                 & input:checked ~ .note-box{
@@ -137,11 +126,9 @@
                     transform: rotateZ(180deg);
                 }
 
+            }  
             }
-                  
-               }
    
-
             &-comment {
 
                 background-color: $sticky-note;
@@ -163,10 +150,7 @@
                     margin: 1rem;
                     font-size: 1.3rem;
                     border-radius: .3rem;
-     
-                   }
-       
-                
+                }
             }
 
             @include respond(phone){
@@ -207,13 +191,8 @@
                     left: 50%;
                     transform: translateX(-50%);
                  }
-                   }
-
-
+                }
             }
-
         }
-
     }
-
 }
