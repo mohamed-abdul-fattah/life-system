@@ -11,7 +11,8 @@
 @import "./base/base";
 @import "./base/typography";
 
-@import "./components/form";
+@import "./components/sign-form";
+@import "./components/AEexpense-form";
 @import "./components/header";
 @import "./components/buttons";
 @import "./components/table";
@@ -21,10 +22,10 @@
 
 @import "./layout/footer";
 @import "./layout/header";
+
+@import "./pages/AE-Expense";
 @import "./pages/expenses";
-
-@import "./pages/home.scss"; 
-@import "./pages/login.scss";
-
+@import "./pages/home"; 
+@import "./pages/login";
 
 
