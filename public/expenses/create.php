@@ -11,6 +11,9 @@ $categories = mysqli_query($connection, "SELECT * FROM `categories`");
 $title = 'Add Expense';
 include public_path('layouts/header.php');
 ?>
+<head>
+    <script defer src="../js/AE.js"></script>
+</head>
 <body>
 <div class='AEexpense'>
     <section>
@@ -87,17 +90,4 @@ include public_path('layouts/header.php');
     </section>
 </div>
 </body>
-<script>
-    let labelLetter = document.querySelector(".expense__form--content-header");
-    let inputs = document.querySelectorAll('.expense__form--content-input');
-    console.log(inputs);
-    inputs.forEach(input=>{
-        input.addEventListener("mouseover", function(e){
-          e.target.parentElement.parentElement.firstElementChild.style.letterSpacing = ".8rem";
-        })
-        input.addEventListener("mouseout", function(e){
-          e.target.parentElement.parentElement.firstElementChild.style.letterSpacing = ".3rem";
-        })
-    })
-</script>
 </html>
