@@ -237,7 +237,6 @@ include public_path('layouts/header.php');
         name1.classList.remove(`${name2}`);
         name1.offsetWidth;
         name1.classList.add(`${name2}`);
-
     }
     // REVERSE ANIMATION
     let animeRevese =  async function(){
