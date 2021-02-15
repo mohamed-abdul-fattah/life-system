@@ -9,3 +9,4 @@ inputs.forEach(input=>{
       e.target.parentElement.parentElement.firstElementChild.style.letterSpacing = ".3rem";
     })
 })
+
