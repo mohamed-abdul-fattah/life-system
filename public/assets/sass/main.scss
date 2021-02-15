@@ -1,12 +1,10 @@
 /* Cairo Google font */
 /*@import url('https://fonts.googleapis.com/css?family=Cairo|Poiret+One');*/
 /* Fontawesome */
-@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 @import "./abstracts/mixins";
 @import "./abstracts/variables";
-
 
 @import "./base/base";
 @import "./base/typography";
@@ -18,15 +16,12 @@
 @import "./components/table";
 @import "./components/pagnition";
 @import "./components/navigation";
-@import "./components/delete";
-
+@import "./components/modal";
 
 @import "./layout/footer";
 @import "./layout/header";
 
 @import "./pages/AE-Expense";
 @import "./pages/expenses";
-@import "./pages/home"; 
+@import "./pages/home";
 @import "./pages/login";
-
-

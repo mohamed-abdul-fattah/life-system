@@ -19,9 +19,6 @@ $categories = mysqli_query($connection, "SELECT * FROM `categories`");
 $title = 'Edit Expense';
 include public_path('layouts/header.php');
 ?>
-<head>
-    <script defer src="../js/AE.js"></script>
-</head>
 <body>
 <div class='AEexpense' >
     <section>
@@ -99,7 +96,7 @@ include public_path('layouts/header.php');
                 <div >
                     <div class="expense__form--btn-submit">
                         <button type="submit" name="submit" value="submit" class="btn btn-primary">
-                            Submit
+                            Update
                         </button>
                     </div>
                 </div>
@@ -110,5 +107,7 @@ include public_path('layouts/header.php');
         <?php include public_path("layouts/footer.php") ?>
     </section>
 </div>
+
+<script src="<?php echo url('assets/js/AE.js') ?>"></script>
 </body>
 </html>
