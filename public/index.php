@@ -24,7 +24,14 @@ $monthTotal = mysqli_fetch_object($sumQuery)->total;
         <section>
             <?php include public_path("layouts/navbar.php") ?>
         </section>
-
+        <section>
+            <div class="expenses__add ">
+                <a href="<?php echo url('expenses/create.php') ?>" class="btn btn--add">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <span>Add Expense</span>
+                </a>
+            </div>
+        </section>
         <section class="home__expenses">
             <div class="card">
                 <div class="card__chart">
