@@ -2,31 +2,28 @@
 # Overview
 Life system is built to watch your daily life and utilize your time and money wisely.
 
-# Configurations
-## Environment Variables
-Copy and rename the configs.php.example to configs.php, then change the values to what values correspond to your environment.
-## Dependencies
-Run `composer install` to install the project dependencies.
-
-Run `./vendor/bin/phpunit` to run the unit tests.
-
-# Database Architecture
-## Tables Structure
-#### transactions Table
-| Field      | Type                | Null | Key | Default             | Extra                         |
-|------------|---------------------|------|-----|---------------------|-------------------------------|
-| id         | bigint(20) unsigned | NO   | PRI | None                | AUTO_INCREMENT                |
-| category_id| int(11)    unsigned | YES  |     | NULL                |                               |
-| amount     | decimal(20,2)       | NO   |     | None                |                               |
-| comment    | varchar(255)        | NO   |     | None                |                               |
-| created_at | timestamp           | YES  |     | CURRENT_TIMESTAMP	  |                               |
-| updated_at | timestamp           | YES  |     | NULL                | ON UPDATE CURRENT_TIMESTAMP   |
-
-#### categories Table
-| Field      | Type                | Null | Key | Default             | Extra                         |
-|------------|---------------------|------|-----|---------------------|-------------------------------|
-| id         | int(10) unsigned    | NO   | PRI | NULL                | AUTO_INCREMENT                |
-| name       | varchar(100)        | NO   |     | None                |                               |
-| created_at | timestamp           | YES  |     | CURRENT_TIMESTAMP   |                               |
-| updated_at | timestamp           | YES  |     | NULL                | ON UPDATE CURRENT_TIMESTAMP   |
-| deleted_at | timestamp           | YES  |     | NULL                |                               |
+# Setup Instructions
+## Development
+1. Copy `.env.example` to `.env` file and update the variables accordingly
+```bash
+cp .env.example .env
+```
+2. Run the following command to start the docker services.
+If you don't have docker installed, then head to the [docs](https://docs.docker.com/engine/install/) to install Docker.
+```bash
+docker-compose up -d
+```
+3. Migrate and seed the database
+```bash
+docker exec -it mymonitor_app php migrate.php
+docker exec -it mymonitor_app php seed.php
+```
+4. Compile the assets
+```bash
+docker exec -it mymonitor_app npm run build:css
+```
+5. Open up the browser and navigate to http://localhost:3000/
+6. Run the following to shut down the services on finish
+```bash
+docker-compose down
+```

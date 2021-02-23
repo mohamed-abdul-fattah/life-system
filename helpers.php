@@ -256,3 +256,19 @@ if ( ! function_exists('dd') ) {
         die;
     }
 }
+
+/**
+ * Get an environment value
+ *
+ * @param  string $name
+ * @param  mixed $default
+ * @return string|null
+ */
+function env($name, $default = null)
+{
+    $value = $_ENV[$name];
+    if (is_null($value) && ! is_null($default)) {
+        return $default;
+    }
+    return $value;
+}

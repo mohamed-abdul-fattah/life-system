@@ -4,24 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-
-    "watch:sass": "node-sass public/assets/sass/main.scss  public/assets/css/index.css -w",
+    "watch:sass": "node-sass public/assets/sass/main.scss public/assets/css/index.css -w",
     "devserver": "live-server",
     "start": "npm-run-all --parallel devserver watch:sass",
-    
     "compile:sass": "node-sass public/assets/sass/main.scss  public/assets/css/style.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions'  public/assets/css/style.comp.css -o public/assets/css/style.prefix.css",
-    "compress:css": "node-sass public/assets/css/style.prefix.css public/assets/css/style.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass prefix:css compress:css"
-
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/assets/css/style.comp.css -o public/assets/css/style.prefix.css",
+    "compress:css": "node-sass public/assets/css/style.prefix.css public/assets/css/index.css --output-style compressed",
+    "rm-compiled": "rm public/assets/css/style.comp.css public/assets/css/style.prefix.css",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css rm-compiled"
   },
   "author": "Elamir <engineeralamiir@gmail.com>",
   "license": "MIT",
-
   "devDependencies": {
-    "node-sass": "^4.14.1",
     "autoprefixer": "^10.0.4",
+    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.6",
     "postcss-cli": "^8.3.0"
   }
 }
