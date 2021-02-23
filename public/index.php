@@ -16,8 +16,9 @@ $monthTotal = mysqli_fetch_object($sumQuery)->total;
         integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" 
         crossorigin="anonymous">
 </script>
-<script defer src="../assets/js/chart.js"></script>
-<script defer src="../assets/js/globalFunctions.js"></script>
+
+<script defer src="<?php echo url('assets/js/chart.js') ?>"></script>
+<script defer src="<?php echo url('assets/js/globalFunctions.js') ?>"></script>
 
 <body>
     <div class="home">
@@ -62,45 +63,5 @@ $monthTotal = mysqli_fetch_object($sumQuery)->total;
                     <?php include public_path("layouts/footer.php") ?>
         </section>
     </div>
-
-    <script>
-        let cardChart = document.querySelector(".card__chart") ;
-        let btnCardDisplay   = document.querySelector('.card__btns--display');
-
-        // Chart Display/Hidden
-        cardChart.classList.remove("card__chart");
-        cardChart.style.height="0px";
-
-        btnCardDisplay.addEventListener('click' , function(e){
-            e.preventDefault();
-            if(cardChart.style.height===""||cardChart.style.height==="0px"){
-                // Buttons Animation
-                btnCardDisplay.style.transform = 'rotateZ(180deg)';
-                document.querySelector(".card__btns--legends").style.display = "block"
-                // Card Chart Box Animation
-                reset(cardChart,"card__chart");
-                cardAnimation("normal","330px","321px","13px",'#202b33',"inset 3px 4px 12px 0px black",'block',.7)
-
-            } else {
-                // Buttons Animation                
-                btnCardDisplay.style.transform = 'rotateZ(0deg)';
-                document.querySelector(".card__btns--legends").style.display = "none"
-                // Card Chart Box Animation
-                reset(cardChart,"card__chart");
-                cardAnimation("reverse","0px","0px","0px",'#313131',"inset 0px 0px 0px 0px black",'none',0);
-
-                // Animation reset
-                reset(legends,"legend");
-                // Legend Dissapear
-                legends.style.animationDirection = 'reverse'
-                setTimeout(() => { legends.style.display="none" }, 450); 
-                html = '';
-                legends.innerHTML = '';
-                document.querySelector(".card__btns--legends").style.transform = 'rotateZ(0deg)';
-            }
-        })
-
-
-    </script>
 </body>
 </html>
