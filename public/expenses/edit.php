@@ -20,93 +20,94 @@ $title = 'Edit Expense';
 include public_path('layouts/header.php');
 ?>
 <body>
-<div id="app">
-    <?php
-    $activeItem = 'expenses';
-    include public_path('layouts/navbar.php')
-    ?>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading content-header">
-                        <h2 class="title">Edit Expense</h2>
-                        <a href="<?php echo url('expenses') ?>" class="btn btn-warning btn-sm head-btn">
-                            <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                            <span class="d-none d-sm-inline-block">Back</span>
-                        </a>
-                        <hr>
-                    </div>
-                    <div class="panel-body">
-                        <form action="<?php echo url('expenses/update.php?id=') . $expense->id ?>" method="POST">
-                            <input type="hidden" name="_method" value="PUT">
-                            <!-- Amount -->
-                            <div class="form-group row">
-                                <label for="amount" class="col-sm-2 col-form-label">Amount</label>
-                                <div class="col-sm-10">
-                                    <input id="amount"
-                                           name="amount"
-                                           type="text"
-                                           class="form-control"
-                                           required="required"
-                                           value="<?php echo htmlentities($expense->amount) ?>">
-                                </div>
-                            </div>
-                            <!-- Category -->
-                            <div class="form-group row">
-                                <label for="category-id" class="col-sm-2 col-form-label">Category</label>
-                                <div class="col-sm-10">
-                                    <select name="category_id" id="category-id" class="form-control">
-                                        <option value="">Other</option>
-                                        <?php while ( $category = mysqli_fetch_object($categories) ): ?>
-                                            <option value="<?php echo $category->id ?>"
-                                                <?php if ( $expense->category_id == $category->id ) echo 'selected' ?>>
-                                                <?php echo $category->name ?>
-                                            </option>
-                                        <?php endwhile ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Comment -->
-                            <div class="form-group row">
-                                <label for="comment" class="col-sm-2 col-form-label">Comment</label>
-                                <div class="col-sm-10">
-                                        <textarea name="comment"
-                                                  id="comment"
-                                                  cols="30"
-                                                  rows="5"
-                                                  class="form-control"
-                                                  required="required"><?php echo htmlentities($expense->comment) ?></textarea>
-                                </div>
-                            </div>
-                            <!-- Date -->
-                            <div class="form-group row">
-                                <label for="created_at" class="col-sm-2 col-form-label">Date</label>
-                                <div class="col-sm-10">
-                                    <input
-                                        id="created_at"
-                                        name="created_at"
-                                        type="date"
-                                        class="form-control"
-                                        value="<?php echo date('Y-m-d', strtotime($expense->created_at)) ?>">
-                                </div>
-                            </div>
-                            <hr>
-                            <!-- Submit button -->
-                            <div class="form-group row">
-                                <div class="col-sm-10">
-                                    <button type="submit" name="submit" value="submit" class="btn btn-primary">
-                                        Update
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+<div class='AEexpense' >
+    <section>
+        <?php
+        $activeItem = 'expenses';
+        include public_path('layouts/navbar.php')
+        ?>
+    </section>
+    <section class="AEexpense__content" >
+        <div class="AEexpense__content--header">
+            <h2 class="AEexpense__content--header-h2">Edit Expense</h2>
+            <a href="<?php echo url('expenses') ?>" class="btn btn-warning btn-sm head-btn">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                <span class="d-none d-sm-inline-block">Back</span>
+            </a>
+            <hr>
+        </div>
+        <div class="expense__form-size">
+            <form class="expense__form" action="<?php echo url('expenses/update.php?id=') . $expense->id ?>" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <!-- Amount -->
+                <div class='expense__form--content'>
+                    <label for="amount" class='expense__form--content-header' >Amount</label>
+                    <div>
+                        <input id="amount"
+                                name="amount"
+                                type="text"
+                                class='expense__form--content-input money'
+                                required="required"
+                                value="<?php echo htmlentities($expense->amount) ?>">
                     </div>
                 </div>
-            </div>
+                <!-- Category -->
+                <div class='expense__form--content'>
+                    <label for="category-id" class='expense__form--content-header' >Category</label>
+                    <div>
+                        <select name="category_id" id="category-id" class='expense__form--content-input'>
+                            <option value="">Other</option>
+                            <?php while ( $category = mysqli_fetch_object($categories) ): ?>
+                                <option value="<?php echo $category->id ?>"
+                                    <?php if ( $expense->category_id == $category->id ) echo 'selected' ?>>
+                                    <?php echo $category->name ?>
+                                </option>
+                            <?php endwhile ?>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Comment -->
+                <div class='expense__form--content'>
+                    <label for="comment" class='expense__form--content-header' >Comment</label>
+                    <div>
+                            <textarea name="comment"
+                                        id="comment"
+                                        cols="30"
+                                        rows="5"
+                                        class='expense__form--content-input sticky-note'
+                                        required="required"><?php echo htmlentities($expense->comment) ?></textarea>
+                    </div>
+                </div>
+                <!-- Date -->
+                <div class='expense__form--content'>
+                    <label for="created_at" class='expense__form--content-header' >Date</label>
+                    <div>
+                        <input
+                            id="created_at"
+                            name="created_at"
+                            type="date"
+                            class='expense__form--content-input'
+                            value="<?php echo date('Y-m-d', strtotime($expense->created_at)) ?>">
+                    </div>
+                </div>
+                <hr>
+                <!-- Submit button -->
+                <div >
+                    <div class="expense__form--btn-submit">
+                        <button type="submit" name="submit" value="submit" class="btn btn-primary">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
+    </section>
+    <section class='footer' >
+        <?php include public_path("layouts/footer.php") ?>
+    </section>
 </div>
-<?php include public_path("layouts/footer.php") ?>
+
+<script src="<?php echo url('assets/js/AE.js') ?>"></script>
 </body>
 </html>
