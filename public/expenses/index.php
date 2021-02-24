@@ -60,7 +60,7 @@ include public_path('layouts/header.php');
         <section>
             <div class="expenses__add ">
                 <h2>Expenses</h2>
-                <a href="<?php echo url('expenses/create.php') ?>" class="btn btn--add">
+                <a href="<?php echo url('expenses/create.php') ?>" class="btn btn__addexpenses">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                     <span>Add Expense</span>
                 </a>
