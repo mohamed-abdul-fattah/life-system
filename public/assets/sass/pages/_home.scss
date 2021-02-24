@@ -1,25 +1,11 @@
 .home {
     display: grid;
-    grid-template-rows: repeat(2,min-content);
-
-    &__expenses {
+    grid-template-rows: repeat(3, min-content) 4rem;
+    
+    &__expenses{
         justify-self: center;
-        &--content{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #251c1cd6;
-            padding: 20px;
-            font-size: 3rem;
-            border-radius: 5px;
-            box-shadow: 0px 6px 8px #4e4e4e;
-
-        .month-summary{
-            color: $white ;
-        }
-        .fa-money {
-            color: $green-money ;
-        }
-                }
+        display: flex;
+        width: 450px;
     }
+
 }

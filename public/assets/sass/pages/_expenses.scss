@@ -1,26 +1,16 @@
 .expenses {
-    display: grid;
-    grid-template-rows:  repeat(4, min-content) 4rem;
+  display: grid;
+  grid-template-rows: repeat(4, min-content) 4rem;
 
-    &__add {
+  &__add {
     display: flex;
     align-items: center;
     padding: 1rem 3rem;
-
-        @include respond(small-phone){
-            .btn--add{
-                width: 25px;
-                height: 30px;
-                overflow: hidden;
-                padding: 3px 4px;
-                margin: 0px 4px;
-            }
-        }
-    }
+  }
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
