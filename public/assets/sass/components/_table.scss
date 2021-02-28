@@ -1,198 +1,216 @@
 .expenses {
-    &__table {
-        margin:0 20px ;
+  &__table {
+    margin: 0 20px;
 
-        @include respond(phone){ margin:0}
-
-        &--head {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(4rem, 11rem)) minmax(min-content, 1fr) 8rem;
-            justify-content: center;
-            font-size: 1.6rem;
-            justify-items: center;
-            align-items: center;
-
-            @include respond(small-phone){ font-size: 1.4rem}
-
-            @include respond(phone) {
-             grid-template-columns: repeat(3, minmax(4rem , 11rem) ) 3rem ;
-             justify-content: space-between;
-             .comment-display-none { display: none}
-            }
-
-            & > * { padding: 3px }
-        }
-
-        &--row {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(4rem, 11rem)) minmax(min-content,1fr) 8rem;
-            grid-template-rows: 4rem ;
-            justify-content: center;
-            border-radius: .4rem;
-            background-color: $black-table-row;
-            margin-bottom: .3rem;
-            padding: .2rem;
-
-            @include respond(phone) {
-                grid-template-columns: repeat(3, minmax(4rem, 11rem)) 3rem;
-                grid-template-rows: 3rem  min-content;     
-                justify-content: space-between;
-                transition: all .4s ;
-            }
-   
-            & > * {
-                align-self: center;
-                justify-self: center;
-                font-size: 1.4rem;
-                color: $white;
-                @include respond(small-phone){ font-size: 1.1rem }
-            }
-
-            &-amount {
-                color: $green-money;
-            }
-
-            .container-none {display: none }
-
-            @include respond(phone) {
-            .container-none {display: block;}
-           
-            .container {
-                grid-column: 1/-1;
-                position: relative;
-                transition: all .3s;
-                border-top: .2rem solid $gray-table-border;
-
-                & input {
-                    position: absolute;
-                    top: -1.9rem;
-                    right: .3rem;
-                    opacity: 0;
-                    cursor: pointer;
-                }
-                .arrow{
-                    width: 1.5rem;
-                    color: white;
-                    font-size: 1.5rem;
-                    transform: rotateZ(0deg);
-                    transition: all .3s;
-
-                }
-
-                &__arrow-box {
-                    width: 3rem;
-                    height: 2.5rem;
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    top: -3rem;
-                    right: .3rem;
-                    border-radius: .4rem;
-                    background-color: transparent;
-                    transition: all .3s;
-                    @include respond(small-phone){
-                        width: 2rem;
-                    }
-
-                    &:hover {
-                        background-color: $orange-arrow-box ;
-                        border: 1px solid $orange-arrow-box ;
-                        cursor: pointer;
-
-                        & .arrow {
-                            color: $black;
-                        }
-                    }
-                }
-
-                .note-box {
-                    display: none;
-                    transition: all .8s;
-                    height: 0;
-                }
-
-                & input:checked ~ .note-box{
-                    opacity: 1;
-                    grid-column: 1/-1;
-                    display: block;
-                    display: grid;
-                    visibility: visible;
-                    grid-template-columns: 1fr 4rem;
-                    grid-template-rows: minmax(9rem,min-content);
-                    height: 100%;
-                }
-                & input:checked + div .arrow {
-                    transform: rotateZ(180deg);
-                }
-
-            }  
-            }
-   
-            &-comment {
-
-                background-color: $sticky-note;
-                grid-column: 4/5;
-                grid-row: 1/2;
-                padding: .2rem .8rem;
-                margin: 1rem;
-                font-size: 1.3rem;
-                border-radius: .3rem;
-                color: $sticky-note-font;
-                font-weight: 600;
-                letter-spacing: 0.3px;
-                font-family: "Reenie Beanie",arial,sans-serif;
-                width: 95%;
-
-                @include respond(phone) {
-                    grid-column: 1/2;
-                    padding: 1rem;
-                    margin: 1rem;
-                    font-size: 1.3rem;
-                    border-radius: .3rem;
-                }
-            }
-
-            @include respond(phone){
-                .comment-none,.btn-none{
-                    display: none;
-                }
-            }
-
-            &-btn {
-                grid-column: 5/6;
-                position: relative;
-                display: flex;
-                justify-self: auto;
-                justify-content: space-between;
-                padding: .6rem;
-
-                .btn-edit {
-                    background-color:$orange-edit-btn  ;
-                    color: $black;
-                }
-                .btn-delete {
-                    background-color: $red-delete-btn ;
-                    font-size: 1.5rem;
-                    color: $white;
-                }
-                @include respond(phone) {
-                grid-column: 2/3 ;    
-
-                 .btn-edit {
-                    position: absolute;
-                    top: 1rem;
-                    left: 50%;
-                    transform: translateX(-50%);
-                 }
-                 .btn-delete {
-                    position: absolute;
-                    bottom: 1rem;
-                    left: 50%;
-                    transform: translateX(-50%);
-                 }
-                }
-            }
-        }
+    @include respond(phone) {
+      margin: 0;
     }
+
+    &--head {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(4rem, 11rem)) minmax(
+          min-content,
+          1fr
+        ) 8rem;
+      justify-content: center;
+      font-size: 1.6rem;
+      justify-items: center;
+      align-items: center;
+
+      @include respond(small-phone) {
+        font-size: 1.4rem;
+      }
+
+      @include respond(phone) {
+        grid-template-columns: repeat(3, minmax(4rem, 11rem)) 3rem;
+        justify-content: space-between;
+        .comment-display-none {
+          display: none;
+        }
+      }
+
+      & > * {
+        padding: 3px;
+      }
+    }
+
+    &--row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(4rem, 11rem)) minmax(
+          min-content,
+          1fr
+        ) 8rem;
+      grid-template-rows: min-content;
+      justify-content: center;
+      border-radius: 0.4rem;
+      background-color: $black-table-row;
+      margin-bottom: 0.3rem;
+      padding: 0.2rem;
+
+      @include respond(phone) {
+        grid-template-columns: repeat(3, minmax(4rem, 11rem)) 3rem;
+        grid-template-rows: 3rem min-content;
+        justify-content: space-between;
+        transition: all 0.4s;
+      }
+
+      & > * {
+        align-self: center;
+        justify-self: center;
+        font-size: 1.4rem;
+        color: $white;
+        @include respond(small-phone) {
+          font-size: 1.1rem;
+        }
+      }
+
+      &-amount {
+        color: $green-money;
+      }
+
+      .container-none {
+        display: none;
+      }
+
+      @include respond(phone) {
+        .container-none {
+          display: block;
+        }
+
+        .container {
+          grid-column: 1/-1;
+          position: relative;
+          transition: all 0.3s;
+          border-top: 0.2rem solid $gray-table-border;
+
+          & input {
+            position: absolute;
+            top: -1.9rem;
+            right: 0.3rem;
+            opacity: 0;
+            cursor: pointer;
+          }
+          .arrow {
+            width: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+            transform: rotateZ(0deg);
+            transition: all 0.3s;
+          }
+
+          &__arrow-box {
+            width: 3rem;
+            height: 2.5rem;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: -3rem;
+            right: 0.3rem;
+            border-radius: 0.4rem;
+            background-color: transparent;
+            transition: all 0.3s;
+            @include respond(small-phone) {
+              width: 2rem;
+            }
+
+            &:hover {
+              background-color: $orange-arrow-box;
+              border: 1px solid $orange-arrow-box;
+              cursor: pointer;
+
+              & .arrow {
+                color: $black;
+              }
+            }
+          }
+
+          .note-box {
+            display: none;
+            transition: all 0.8s;
+            height: 0;
+          }
+
+          & input:checked ~ .note-box {
+            opacity: 1;
+            grid-column: 1/-1;
+            display: block;
+            display: grid;
+            visibility: visible;
+            grid-template-columns: 1fr 4rem;
+            grid-template-rows: minmax(9rem, min-content);
+            height: 100%;
+          }
+          & input:checked + div .arrow {
+            transform: rotateZ(180deg);
+          }
+        }
+      }
+
+      &-comment {
+        background-color: $sticky-note;
+        grid-column: 4/5;
+        grid-row: 1/2;
+        padding: 0.2rem 0.8rem;
+        margin: 1rem;
+        font-size: 1.3rem;
+        border-radius: 0.3rem;
+        color: $sticky-note-font;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        font-family: "Reenie Beanie", arial, sans-serif;
+        width: 95%;
+
+        @include respond(phone) {
+          grid-column: 1/2;
+          padding: 1rem;
+          margin: 1rem;
+          font-size: 1.3rem;
+          border-radius: 0.3rem;
+        }
+      }
+
+      @include respond(phone) {
+        .comment-none,
+        .btn-none {
+          display: none;
+        }
+      }
+
+      &-btn {
+        grid-column: 5/6;
+        position: relative;
+        display: flex;
+        justify-self: auto;
+        justify-content: space-between;
+        padding: 0.6rem;
+
+        .btn-edit {
+          background-color: $orange-edit-btn;
+          color: $black;
+        }
+        .btn-delete {
+          background-color: $red-delete-btn;
+          font-size: 1.5rem;
+          color: $white;
+        }
+        @include respond(phone) {
+          grid-column: 2/3;
+
+          .btn-edit {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          .btn-delete {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
 }
