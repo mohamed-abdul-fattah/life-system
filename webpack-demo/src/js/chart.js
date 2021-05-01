@@ -1,7 +1,7 @@
-
+import {reset , cardAnimation } from "./globalFunctions"
 
 let chart = document.getElementById('chart');
-let chartContainer = document.querySelector('.card__chart--container');
+export let chartContainer = document.querySelector('.card__chart--container');
 
 let chartPropertiesOrignal = {
     type : `pie`,
@@ -151,7 +151,7 @@ btnLegend.addEventListener('click',function(e){
 
 ////////////////////////////////////////////////////////////////////
 
-let cardChart = document.querySelector(".card__chart") ;
+export let cardChart = document.querySelector(".card__chart") ;
 let btnCardDisplay   = document.querySelector('.card__btns--display');
 
 // Chart Display/Hidden

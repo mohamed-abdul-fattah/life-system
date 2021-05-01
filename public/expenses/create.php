@@ -11,6 +11,7 @@ $categories = mysqli_query($connection, "SELECT * FROM `categories`");
 $title = 'Add Expense';
 include public_path('layouts/header.php');
 ?>
+
 <body>
 <div class='AEexpense'>
     <section>
@@ -86,6 +87,5 @@ include public_path('layouts/header.php');
         <?php include public_path("layouts/footer.php") ?>
     </section>
 </div>
-<script src="<?php echo url('assets/js/AE.js') ?>"></script>
 </body>
 </html>

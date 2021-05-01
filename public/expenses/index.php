@@ -25,7 +25,7 @@ $title = 'Expenses';
 include public_path('layouts/header.php');
 ?>
 <head>
-    <script defer src="../assets/js/modal.js"></script>
+<script defer src="<?php echo url('dist/expenses.js') ?>"></script>
 </head>
 <body>
     <div class="expenses">
@@ -144,27 +144,5 @@ include public_path('layouts/header.php');
         </section>
     </div>
 
-<script>
-    'use strict'
-    let forms = document.querySelectorAll('form');
-    let sections = document.querySelectorAll('section');
-    let cofirmBtn = document.querySelector('.cofirm') ;
-    let ignoreBtn = document.querySelector('.ignore') ;
-
-    Array.from(forms).forEach((form) => {
-        form.addEventListener('submit', function (evt) {
-            evt.preventDefault();
-            modalActive();
-
-            cofirmBtn.addEventListener('click',()=> {
-                form.submit();                          
-                modalReverse();
-                } );
-            ignoreBtn.addEventListener('click',()=> {
-                modalReverse();
-                } )
-        }, true);
-    });
-</script>
 </body>
 </html>

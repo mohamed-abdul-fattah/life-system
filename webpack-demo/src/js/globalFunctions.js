@@ -1,6 +1,6 @@
-
+import {cardChart ,chartContainer} from "./chart"
 // Reset Css Animation
-let reset =  function(name1 , name2){
+export let reset =  function(name1 , name2){
     // NOTE 
     // css animation can not be used after the first lunch , unless reset 
     name1.classList.remove(`${name2}`);
@@ -9,7 +9,7 @@ let reset =  function(name1 , name2){
 }
 
 // Card Animation 
-let cardAnimation = function(direction ,height ,width ,padding , background, boxShadow ,display , seconds){
+export let cardAnimation = function(direction ,height ,width ,padding , background, boxShadow ,display , seconds){
     cardChart.style.animationDirection = `${direction}`;
     cardChart.style.height=`${height}`;
     cardChart.style.width= `${width}`;

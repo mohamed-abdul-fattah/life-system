@@ -16,9 +16,8 @@ $monthTotal = mysqli_fetch_object($sumQuery)->total;
         integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" 
         crossorigin="anonymous">
 </script>
+<script defer src="<?php echo url('dist/home.js') ?>"></script>
 
-<script defer src="<?php echo url('assets/js/chart.js') ?>"></script>
-<script defer src="<?php echo url('assets/js/globalFunctions.js') ?>"></script>
 
 <body>
     <div class="home">
