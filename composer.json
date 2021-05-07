@@ -2,6 +2,7 @@
     "name": "mohamed/life-system",
     "type": "project",
     "license": "MIT",
+    "description": "Monitor your life",
     "authors": [
         {
             "name": "Mohamed Abdul-Fattah",
@@ -9,6 +10,7 @@
         }
     ],
     "require": {
+        "php": ">=7.4",
         "ext-mysqli": "*"
     },
     "autoload": {
