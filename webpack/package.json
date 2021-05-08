@@ -1,0 +1,31 @@
+{
+  "name": "my-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss:watch": "sass ./src/scss/main.scss ../public/dist/css/main.css -w",
+    "wepback:watch": "webpack -w",
+    "webpack-scss:watch": "run-p scss:watch wepback:watch ",
+    "scss": "sass ./src/scss/main.scss ../public/dist/css/main.css",
+    "production": "webpack",
+    "webpack-scss:production": "run-p scss production "
+  },
+  "keywords": [],
+  "author": "Elamir <engineeralamiir@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^5.2.4",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.32.12",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "node-sass": "^5.0.0"
+  }
+}
