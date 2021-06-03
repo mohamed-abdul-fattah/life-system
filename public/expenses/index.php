@@ -9,7 +9,7 @@ $offset = ($currentPage - 1) * $perPage;
 $connection = open_connection();
 $query = "SELECT `transactions`.*, `c`.`name` as category FROM `transactions`
             LEFT JOIN categories c on transactions.category_id = c.id
-            ORDER By `transactions`.`created_at` DESC
+            ORDER By `transactions`.`created_at`, `transactions`.`id` DESC
             LIMIT {$perPage} 
             OFFSET {$offset}";
 $countQuery = "SELECT COUNT(*) as total FROM `transactions`";
