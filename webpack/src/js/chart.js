@@ -1,4 +1,3 @@
-// import { reset, cardAnimation } from "./globalFunctions";
 import anime from "animejs/lib/anime.es.js";
 
 let chart = document.getElementById("chart");
@@ -165,7 +164,6 @@ let legendAnimation = function (direction, display, legendSeconds) {
 btnCardDisplay.addEventListener("click", function (e) {
   e.preventDefault();
   if (cardChart.style.height === "" || cardChart.style.height === "0rem") {
-    console.log(window.innerWidth);
     cardChartAnimation("normal", 600);
     setTimeout(() => {
       legendAnimation("normal", "flex", 0);
