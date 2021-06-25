@@ -1,6 +1,11 @@
 import anime from "animejs/lib/anime.es.js";
 
 let chart = document.getElementById("chart");
+
+/**
+ * Chart.js library uses an object to create a chart with properties like type , data ..
+ * and options to specific it's behavior
+ */
 let chartPropertiesOrignal = {
   type: `pie`,
   data: {
@@ -56,7 +61,18 @@ let chartPropertiesOrignal = {
 
 let myChart;
 let chartEditProperties;
+
+/**
+ * This function used to change type of chart as wanted pie ,line , doughnut ...
+ * 1) to get it's animation every time it appear , it should be destroied first
+ * in param add type you want , categories and numbers of each category
+ * @param {string} newType
+ * @param {array} categories
+ * @param {array} numbers
+ * @returns myChart  (an instance object from Chart class)
+ */
 let changeChart = function (newType, categories, numbers) {
+  // 1)
   if (myChart) {
     myChart.destroy();
   }
@@ -77,7 +93,11 @@ let cardChart = document.querySelector(".card__chart");
 let chartContainer = document.querySelector(".card__chart--container");
 let btnCardDisplay = document.querySelector(".card__btns--display");
 
-// Chart animation
+/**
+ * This function is about the animation or behaviour of card that containes the chart
+ * @param {string} direction  direction of card
+ * @param {number} chartSeconds seconds before chart start appear , depends on when card animation
+ */
 let cardChartAnimation = function (direction, chartSeconds) {
   if (myChart) {
     myChart.destroy();
@@ -114,7 +134,15 @@ let cardChartAnimation = function (direction, chartSeconds) {
   });
 };
 
-// Legend animation
+/**
+ * This function is about the animation of legend box
+ * legend is the right side part of the card , where chart categories and it's colors are written
+ * @param {string} direction
+ * @param {string} display
+ * @param {number} legendSeconds
+ * @returns null (if window.innerWidth <= 350) , animation (if window.innerWidth > 350)
+ */
+
 let legendAnimation = function (direction, display, legendSeconds) {
   // Legend html creation
   html = "";
@@ -161,6 +189,9 @@ let legendAnimation = function (direction, display, legendSeconds) {
   }
 };
 
+/**
+ * This function is about the behaviour of the button ,which on clicked card animation start or reversed
+ */
 btnCardDisplay.addEventListener("click", function (e) {
   e.preventDefault();
   if (cardChart.style.height === "" || cardChart.style.height === "0rem") {

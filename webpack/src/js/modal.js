@@ -3,7 +3,13 @@ import anime from "animejs/lib/anime.es.js";
 let modalTvEffect = document.querySelector(".modall__tvEffect");
 let modalTvEffectContent = document.querySelector(".modall__tvEffect--content");
 let overlay = document.querySelector(".modall__overlay");
-//OVERLAY function animation
+
+/**
+ * This function is about tv modal effect animation
+ * @param {string} direction
+ * @param {string} display1 for black overlay animation
+ * @param {string} display2 for modal box start animation
+ */
 export let modalEffect = function (direction, display1, display2) {
   overlay.style.display = `${display1}`;
   anime({

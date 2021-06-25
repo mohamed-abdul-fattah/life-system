@@ -4,7 +4,6 @@ let forms = document.querySelectorAll("form");
 let cofirmBtn = document.querySelector(".cofirm");
 let ignoreBtn = document.querySelector(".ignore");
 
-
 Array.from(forms).forEach((form) => {
   form.addEventListener(
     "submit",
