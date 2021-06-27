@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss:watch": "sass ./src/scss/main.scss ../public/dist/css/main.css -w",
     "wepback:watch": "webpack -w",
-    "webpack-scss:watch": "run-p scss:watch wepback:watch ",
+    "build:css-watch": "run-p scss:watch wepback:watch ",
     "scss": "sass ./src/scss/main.scss ../public/dist/css/main.css",
     "production": "webpack",
-    "webpack-scss:production": "run-p scss production "
+    "build:css": "run-p scss production "
   },
   "keywords": [],
   "author": "Elamir <engineeralamiir@gmail.com>",
