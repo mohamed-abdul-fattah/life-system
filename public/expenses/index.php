@@ -25,7 +25,7 @@ $title = 'Expenses';
 include public_path('layouts/header.php');
 ?>
 <head>
-<script defer src="<?php echo url('dist/expenses.js') ?>"></script>
+<script defer src="<?php echo url('dist/js/expenses.js') ?>"></script>
 </head>
 <body>
     <div class="expenses">

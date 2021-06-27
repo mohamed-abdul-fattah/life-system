@@ -1,23 +1,27 @@
-
+.card--container {
+  display: flex;
+  align-items: flex-start;
+}
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 3rem;
-  border-radius: 0.5rem;
   background-color: #0a0a0ad6;
   box-shadow: 0px 6px 8px #4e4e4e;
+  @include respond(small-phone) {
+    width: 23rem;
+  }
   &__chart {
-    width: 0rem;
+    width: 23rem;
     height: 0rem;
-    border-radius: 0.7rem;
+    box-shadow: inset 3px 4px 12px 0px black;
     padding: 0rem;
-    animation: card__chart 0.8s;
     &--container {
+      display: flex;
       position: relative;
       margin: auto;
       height: 100%;
-      width: 100%;
     }
   }
   &__btns {
@@ -25,7 +29,7 @@
     justify-content: space-around;
     align-items: center;
     margin: 10px 0px 10px 0px;
-    padding: 0rem;
+    padding: 0.3rem;
     width: 100%;
     height: 3.5rem;
     z-index: 1000;
@@ -35,6 +39,7 @@
 
     &--display {
       transform: rotateZ(0deg);
+      padding: 0.2rem;
     }
     &--legends {
       display: none;
@@ -48,38 +53,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0px 42px;
+    margin: 0rem 2rem;
+    @include respond(small-phone) {
+      margin: 0rem;
+    }
   }
 
   .month-summary {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     color: #f9eec1;
+    @include respond(small-phone) {
+      font-size: 1.7rem;
+    }
   }
   .fa-money {
     color: $green-money;
     justify-self: center;
-  }
-}
-
-@keyframes card__chart {
-  0% {
-    padding: 0rem;
-    width: 0rem;
-    height: 0rem;
-  }
-  80% {
-    padding: 1.3rem;
-    width: 32.1rem;
-    height: 33rem;
-    background-color: #313131;
-    box-shadow: inset 0px 0px 0px 0px black;
-  }
-  100% {
-    padding: 1.3rem;
-    width: 32.1rem;
-    height: 33rem;
-    background-color: #202b33;
-    box-shadow: inset 3px 4px 12px 0px black;
   }
 }
 
@@ -88,17 +77,11 @@
   flex-direction: column;
   justify-content: space-around;
   position: relative;
-  top: 10px;
-  width: 8rem;
-  height: 31rem;
-  background-color: #202b33;
+  background-color: #202b34;
   color: #e4e4e4;
-  animation: legend 0.5s cubic-bezier(0.4, 0, 1, 1);
-  padding: 0.7rem;
-  border-radius: 0.2rem;
   border: 0.2rem solid #1f1e1e;
   &__container {
-    display: flex;
+    display: none;
 
     &--box {
       width: 2rem;
@@ -107,23 +90,11 @@
     &--name {
       height: 50%;
       font-size: 1.8rem;
+      margin-left: 4px;
+      color: #f9eec1;
+      @include respond(small-phone) {
+        font-size: 1.4rem;
+      }
     }
-  }
-}
-
-@keyframes legend {
-  0% {
-    padding: 0rem;
-    width: 0rem;
-    color: transparent;
-  }
-  80% {
-    width: 7rem;
-    color: transparent;
-  }
-  100% {
-    padding: 0.7rem;
-    width: 8rem;
-    color: #e4e4e4;
   }
 }
