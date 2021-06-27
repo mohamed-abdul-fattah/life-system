@@ -12,11 +12,13 @@ $query = "SELECT SUM(`amount`) AS 'total' FROM `transactions` WHERE `created_at`
 $sumQuery = mysqli_query($connection, $query);
 $monthTotal = mysqli_fetch_object($sumQuery)->total;
 ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js" 
-        integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" 
-        crossorigin="anonymous">
-</script>
-<script defer src="<?php echo url('dist/js/home.js') ?>"></script>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js" 
+            integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" 
+            crossorigin="anonymous">
+    </script>
+    <script defer src="<?php echo url('dist/js/home.js') ?>"></script>
+</head>
 <body>
     <div class="home">
         <section>
@@ -36,7 +38,7 @@ $monthTotal = mysqli_fetch_object($sumQuery)->total;
                     </div>
                 </div>
                 <div class="card__btns">
-                    <button class="btn card__btns--display" ><i class="fas fa-chevron-down"></i></button>
+                    <button class="btn card__btns--display" ><i class="fa fa-chevron-down"></i></button>
                 </div>
                 <div class="card__data">
                     <p class="month-summary">Money spent monthly</p>

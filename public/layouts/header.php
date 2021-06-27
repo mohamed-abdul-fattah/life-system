@@ -10,7 +10,5 @@
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
           crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo url('dist/css/main.css') ?>">
-    <script src="https://kit.fontawesome.com/fe6cb3607a.js" crossorigin="anonymous"></script>
-
     <title><?php echo isset($title) ? $title : 'Home'; ?> | <?php echo getConfig('APP_NAME', 'Life System') ?></title>
 </head>
