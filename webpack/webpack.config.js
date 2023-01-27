@@ -1,15 +1,14 @@
 const path = require("path");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: {
     home: "./src/js/main/home.js",
     expenses: "./src/js/main/expenses.js",
-    scss: "./src/js/main/scss.js",
   },
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "../public/dist"),
+    path: path.resolve(__dirname, "../public/dist/js"),
   },
   module: {
     rules: [

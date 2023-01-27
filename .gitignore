@@ -2,5 +2,7 @@
 /.env
 /vendor/
 /.phpunit.result.cache
-/webpack-demo/node_modules/
-/public/assets/css/*.css
+/webpack/node_modules/
+/public/dist/css
+/public/dist/js
+

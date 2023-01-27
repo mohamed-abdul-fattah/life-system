@@ -9,7 +9,6 @@
           rel="stylesheet"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
           crossorigin="anonymous">
-<script defer src="<?php echo url('dist/scss.js') ?>"></script>
-
+    <link rel="stylesheet" href="<?php echo url('dist/css/main.css') ?>">
     <title><?php echo isset($title) ? $title : 'Home'; ?> | <?php echo getConfig('APP_NAME', 'Life System') ?></title>
 </head>

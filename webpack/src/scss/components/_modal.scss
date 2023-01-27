@@ -1,4 +1,5 @@
 .modall {
+  position: absolute;
   &__tvEffect {
     position: fixed;
     left: 50%;
@@ -81,15 +82,6 @@
     height: 100%;
     background-color: #000000e0;
     z-index: 500;
-    animation: overlayAnimation 0.8s;
-    animation-direction: alternate;
   }
 }
-@keyframes overlayAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+
