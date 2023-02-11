@@ -1,6 +1,11 @@
+# Ignore IDE generated files
 /.idea/
-/.env
-/vendor/
-/.phpunit.result.cache
+/**/*.swp
+
+# Ignore installed libraries
 /node_modules/
+/vendor/
+
+/.env
+/.phpunit.result.cache
 /public/assets/css/*.css
