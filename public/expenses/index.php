@@ -24,9 +24,6 @@ $total = mysqli_fetch_object($count)->total;
 $title = 'Expenses';
 include public_path('layouts/header.php');
 ?>
-<head>
-    <script defer src="../assets/js/modal.js"></script>
-</head>
 <body>
     <div class="expenses">
         <div class="modall">

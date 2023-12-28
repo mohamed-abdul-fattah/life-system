@@ -86,6 +86,5 @@ include public_path('layouts/header.php');
         <?php include public_path("layouts/footer.php") ?>
     </section>
 </div>
-<script src="<?php echo url('assets/js/AE.js') ?>"></script>
 </body>
 </html>

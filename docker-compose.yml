@@ -12,7 +12,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - 3000:3000
+      - "3000:3000"
     entrypoint: /tmp/entrypoint.sh
     command: ["php", "-t", "./public/", "-S", "0.0.0.0:3000"]
 
@@ -22,6 +22,8 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     env_file: .env
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}

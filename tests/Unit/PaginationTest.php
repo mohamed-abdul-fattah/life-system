@@ -6,7 +6,7 @@ use Tests\TestCase;
 
 class PaginationTest extends TestCase
 {
-    public function rangesProvider()
+    public function rangesProvider(): array
     {
         return [
             [
@@ -91,12 +91,12 @@ class PaginationTest extends TestCase
      * @test
      * @dataProvider rangesProvider
      */
-    public function paginationRange($current, $last, $range)
+    public function paginationRange(int $current, int $last, array $range): void
     {
         $this->assertEquals(getPaginationRange($current, $last), $range);
     }
 
-    public function paginationIndexesProvider()
+    public function paginationIndexesProvider(): array
     {
         return [
             [
@@ -292,7 +292,7 @@ class PaginationTest extends TestCase
      * @throws \Exception
      * @dataProvider paginationIndexesProvider
      */
-    public function paginationInfo($current, $last, $paginationInfo)
+    public function paginationInfo(int $current, int $last, array $paginationInfo): void
     {
         $this->assertEquals(paginationIndexes($current, $last), $paginationInfo);
     }
